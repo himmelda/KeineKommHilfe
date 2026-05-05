@@ -1,417 +1,66 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-<meta charset="UTF-8">
-<title>Fehlerdiagnose – Keine Kommunikation</title>
-<style>
+  <meta charset="UTF-8">
+  <title>Sprachauswahl</title>
+  <style>
     body {
-        font-family: Arial, sans-serif;
-        margin: 20px;
-        background: #f7f7f7;
+      font-family: Arial, sans-serif;
+      background: #f7f7f7;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
     }
-    #container {
-        background: white;
-        padding: 20px;
-        border-radius: 10px;
-        max-width: 700px;
-        margin: auto;
-        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+
+    .language-box {
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      text-align: center;
     }
-    h2 {
-        text-align: center;
+
+    h1 {
+      margin-bottom: 20px;
     }
-    .step {
-        margin-top: 20px;
-        padding: 10px 0;
+
+    a {
+      display: block;
+      margin: 10px 0;
+      padding: 12px;
+      text-decoration: none;
+      font-weight: bold;
+      color: white;
+      background: #0078d4;
+      border-radius: 6px;
     }
-    button {
-        padding: 10px 16px;
-        margin: 8px 5px;
-        border: none;
-        border-radius: 6px;
-        cursor: pointer;
-        font-weight: bold;
-        background: #0078d4;
-        color: white;
+
+    a:hover {
+      background: #005fa3;
     }
-    button:hover {
-        background: #005fa3;
-    }
-    .result {
-        background: #e3f7e3;
-        border-left: 5px solid #2d8a2d;
-        padding: 15px;
-        margin-top: 20px;
-        border-radius: 4px;
-        font-size: 1.1em;
-    }
-</style>
+  </style>
 </head>
 <body>
 
-<div id="container">
-    <h2>Fehlerdiagnose – Keine Kommunikation</h2>
-    <div id="app"></div>
-</div>
 
-<script>
-// ---------------------------
-// Entscheidungslogik aus PDF
-// ---------------------------
-const steps = {
-    start: {
-        text: "Wie viele Elemente haben keine Kommunikation mit der Steuerung?",
-        options: {
-            "Alle": "spannung_park",
-            "Eins": "einzel_element"
-        }
-    },
+  <div class="language-box">
+    <h1>Sprache wählen</h1>
 
-    einzel_element: {
-        text: "Prüfung der Elemente keine Kommunikation",
-        info: "Schieben Sie alle Elemente in die \"AUF\" Position. Führen Sie den \"AUF\" Befehl aus. Wird wieder die Fehlermeldung \"Fehler Element X Keine Kommunikation\"angezeigt?",
-        options: {
-            "Nein": "schienenunterbrechung",
-            "Ja": "prüfe_antriebswagen"
-        }
-    },
+    <a href="de_flowchart.html">
+      <span class="flag">🇩🇪</span> Deutsch
+    </a>
 
-    prüfe_antriebswagen: {
-        text: "Prüfen Sie den Antriebswagen",
-        info: "PRüfen und korrigieren sie das korrekte Einstecken der \"Power\" Steckers auf der Antriebsplatine von Element X. Prüfen und korrigieren Sie die Adresseinstellungen an den Adressschaltern ALLER Antriebsplatinen! Führen Sie den  \"AUF\" Befehl erneut aus. Wird wieder die Fehlermeldung \"Fehler Element X Keine Kommunikation\"angezeigt?",
-        options: {
-            "Nein": "ursache_behoben",
-            "Ja": "tausche_wagen"
-        }
-    },
+    <a href="en_flowchart.html">
+      <span class="flag">🇬🇧</span> English
+    </a>
 
-    tausche_wagen: {
-        text: "er Antriebswagen von Element X ist defekt!",
-        result: "Tauschen Sie den Antriebswagen aus!"
-     },
+    <a href="fr_flowchart.html">
+      <span class="flag">🇫🇷</span> Français
+    </a>
+  </div>
 
-    spannung_park: {
-        text: "Prüfen Sie die Spannungen im Park",
-        info: "Messen Sie die Spannungen an den Stromschienen im Parkbereich.  An den Stromschienen 1 und 2 soll eine Spannung von ~36V anliegen. An den Stromschienen 2 und 3 sollte eine Spannung von ~12V anliegen. Liegen die Spannungen korrekt an?",
-        options: {
-            "Ja": "spannung_schloss",
-            "Nein": "spannung_steuerung"
-        }
-    },
-
-    spannung_schloss: {
-        text: "Prüfen Sie die Spannungen an der Schlossleiste",
-        info: "Messen Sie die Spannungen an den Stromschienen im Bereich der Schlossleiste.  An den Stromschienen 1 und 2 soll eine Spannung von ~36V anliegen. An den Stromschienen 2 und 3 sollte eine Spannung von ~12V anliegen. Liegen die Spannungen korrekt an?",
-        options: {
-            "Ja": "einzel_element",
-            "Nein": "schienenunterbrechung"
-        }
-    },
-
-    spannung_steuerung: {
-        text: "Prüfen Sie die Spannungen an der \"Power Rail\" Buchse der Steuerung.",
-        info: "Messen Sie die Spannungen an der \"Power Rail\" Buchse.  An den Kontakten 1 und 2 soll eine Spannung von ~36V anliegen. An den Kontakten 2 und 3 sollte eine Spannung von ~12V anliegen. Liegen die Spannungen korrekt an?",
-        options: {
-            "Ja": "anlage_betrieb",
-            "Nein": "spannungsversorgung"
-        }
-    },
-    anlage_betrieb: {
-        text: "War die Trennwand schon einmal vollständig im Betrieb?",
-        options: {
-            "Ja": "kurzschluss",
-            "Nein": "prüfe_kabel"
-        }
-     },
-
-     prüfe_kabel: {
-        text: "Prüfen Sie die das Anschlusskabel von der Steuerung zur Stromschiene",
-        info: "Prüfen sie ob das Kabel korrekt angeschlossen ist. Die Aderbelegung sollte 1 zu 1 an beiden Enden übereinstimmen. Prüfen sie zudem ob die elektrische Verbindung in dem Kabel mithilfe einer Durchgangsprüfung. Ist das Kabel in Ordnung?",
-        options: {
-            "Ja": "kurzschluss",
-            "Nein": "tausche_kabel"
-        }
-    },
-
-    // ---------------------------
-    // 4.2.1.12.7 Prüfung Kurzschluss
-    // ---------------------------
-
-    kurzschluss: {
-        text: "Handelt es sich um ein Varitrans/Glas Trennwand?",
-        options: {
-            "Ja": "spannung_park_ks2",
-            "Nein": "spannung_park_ks1"
-        }
-    },
-
-    spannung_park_ks1: {
-        text: "Prüfen Sie die Spannungen im Park",
-        info: "Ziehen Sie bei allen Elementen den \"Element\" Stecker ab. Messen Sie die Spannungen an den Stromschienen im Parkbereich.  An den Stromschienen 1 und 2 soll eine Spannung von ~36V anliegen. An den Stromschienen 2 und 3 sollte eine Spannung von ~12V anliegen. Liegen die Spannungen korrekt an?",
-        options: {
-            "Ja": "kurzschluss_element",
-            "Nein": "spannung_park_ks2"
-        }
-    },
-
-     spannung_park_ks2: {
-        text: "Prüfen Sie die Spannungen im Park",
-        info: "Ziehen Sie bei allen Elementen den 3 poligen \"Power\" Stecker ab. Messen Sie die Spannungen an den Stromschienen im Parkbereich.  An den Stromschienen 1 und 2 soll eine Spannung von ~36V anliegen. An den Stromschienen 2 und 3 sollte eine Spannung von ~12V anliegen. Liegen die Spannungen korrekt an?",
-        options: {
-            "Ja": "kurzschluss_antrieb",
-            "Nein": "kurzschluss_stromabnehmer"
-        }
-    },
-
-    // ---------------------------
-    // 4.2.1.12.10 Prüfung Kurzschluss Element
-    // ---------------------------   
-
-    kurzschluss_element: {
-        text: "Schieben Sie alle Elemente in die \"AUF\" Position.",
-        info: "Stecken Sie den Stecker \"Element\" vom ersten Element wieder ein.",
-        options: {
-            "Weiter": "spannung_park_element",
-        }
-    },
-
-    spannung_park_element: {
-        text: "Prüfen Sie die Spannungen im Park",
-        info: "Messen Sie die Spannungen an den Stromschienen im Parkbereich.  An den Stromschienen 1 und 2 soll eine Spannung von ~36V anliegen. An den Stromschienen 2 und 3 sollte eine Spannung von ~12V anliegen. Liegen die Spannungen korrekt an?",
-        options: {
-            "Ja": "element_ok",
-            "Nein": "behebe_kurzschluss_element"
-        }
-    },
-
-    element_ok: {
-        text: "Das Element ist in Ordnung!",
-        options: {
-            "Weiter": "prüfe_letztes_element",
-        }
-    },
-
-    prüfe_letztes_element:{
-        text: "War das das letzte Element der Anlage?",
-        options: {
-            "Ja": "ursache_behoben",
-            "Nein": "prüfe_naechstes_element_kurzschluss"
-        }
-    },
-
-    prüfe_naechstes_element_kurzschluss: {
-        text: "Prüfen Sie das nächste Element",
-        info: "Stecken Sie den \"Element\" Stecker vom nächsten Element wieder ein.",
-        options: {
-            "Weiter": "spannung_park_element",
-        }
-    },
-
-    // ---------------------------
-    // 4.2.1.12.11 Behebe Kurzschluss Element
-    // ---------------------------   
-
-    behebe_kurzschluss_element: {
-        text: "Öffnen sie das Element um Zugang zu bekommen.",
-        info: "Ziehen Sie den \"Power\" Stecker von der Elementplatine ab. Messen Sie die Spannungen an den Stromschienen im Parkbereich.  An den Stromschienen 1 und 2 soll eine Spannung von ~36V anliegen. An den Stromschienen 2 und 3 sollte eine Spannung von ~12V anliegen. Liegen die Spannungen korrekt an?",
-        options: {
-            "Ja": "prüfe_motor_stecker",
-            "Nein": "tausche_bolzenkabel"
-        }
-    },
-
-    prüfe_motor_stecker: {
-        text: "Stecken Sie den \"Power\" Stecker wieder an die Elementplatine an.",
-        info: "Ziehen Sie alle \"Motor\" Stecker von der Elementplatine ab. Messen Sie die Spannungen an den Stromschienen im Parkbereich.  An den Stromschienen 1 und 2 soll eine Spannung von ~36V anliegen. An den Stromschienen 2 und 3 sollte eine Spannung von ~12V anliegen. Liegen die Spannungen korrekt an?",
-        options: {
-            "Ja": "kurzschluss_motor",
-            "Nein": "tausche_elementplatine"
-        }
-    },
-
-    kurzschluss_motor: {
-        text: "Der Kurzschluss liegt an einem am \"Motor\" Stecker angeschlossenen Bauteil!",
-        result: "Prüfen Sie alle Bauteile auf Kurzschluss welche über den \"Motor\" Stecker angeschlossen sind und beheben sie den Kurzschluss!"
-     },
-
-    tausche_elementplatine: {
-        text: "Die Elementplatine ist defekt!",
-        result: "Tauschen Sie die Elementplatine aus! Prüfen sie alle Bauteile auf Kurzschluss welche über den \"Motor\" Stecker angeschlossen sind und beheben sie den Kurzschluss!"
-     },
-
-    tausche_bolzenkabel: {
-        text: "Das Bolzenkabel ist defekt!",
-        result: "Tauschen Sie das Bolzenkabel aus!"
-     },
-
-    // ---------------------------
-    // 4.2.1.12.9 Prüfung Kurzschluss Antrieb
-    // ---------------------------   
-
-    kurzschluss_antrieb: {
-        text: "Schieben Sie alle Elemente in die \"AUF\" Position.",
-        info: "Stecken Sie den 3 poligen \"Power\" Stecker vom ersten Antriebswagen wieder ein.",
-        options: {
-            "Weiter": "spannung_park_antrieb",
-        }
-    },
-
-    spannungen_park_antrieb: {
-        text: "Prüfen Sie die Spannungen im Park",
-        info: "Messen Sie die Spannungen an den Stromschienen im Parkbereich.  An den Stromschienen 1 und 2 soll eine Spannung von ~36V anliegen. An den Stromschienen 2 und 3 sollte eine Spannung von ~12V anliegen. Liegen die Spannungen korrekt an?",
-        options: {
-            "Ja": "antrieb_ok",
-            "Nein": "tausche_antriebswagen"
-        }
-    },
-
-    antrieb_ok: {
-        text: "Der Antrieb ist in Ordnung!",
-        options: {
-            "Weiter": "prüfe_letztes_element_antrieb",
-        }
-    },
-
-    prüfe_letztes_element_antrieb: {
-        text: "War das das letzte Element der Anlage?",
-        options: {
-            "Ja": "ursache_behoben",
-            "Nein": "prüfe_naechstes_element_antrieb"
-        }
-    },
-
-    prüfe_naechstes_element_antrieb: {
-        text: "Prüfen Sie das nächste Element",
-        info: "Stecken Sie vom nächsten Element den 3 poligen \"Power\" Stecker vom Antriebswagen wieder ein.",
-        options: {
-            "Weiter": "spannung_park_antrieb",
-        }
-    },
-
-    // ---------------------------
-    // 4.2.1.12.8 Prüfung Kurzschluss Stromabnehmer
-    // ---------------------------   
-
-    kurzschluss_stromabnehmer: {
-        text: "Schieben Sie alle Elemente in die \"AUF\" Position.",
-        info: "Öffnen sie die Schiene durch Entfernen der Montagestücke. Schieben sie das erste Element zur Montageöffnungund nehmen Sie den Antriebswagenaus der Schiene, indem sie das Element bis auf den Boden ablassen.",
-        options: {
-            "Weiter": "spannung_park_stromabnehmer",
-        }
-    },
-
-    spannung_park_stromabnehmer: {
-        text: "Prüfen Sie die Spannungen im Park",
-        info: "Messen Sie die Spannungen an den Stromschienen im Parkbereich.  An den Stromschienen 1 und 2 soll eine Spannung von ~36V anliegen. An den Stromschienen 2 und 3 sollte eine Spannung von ~12V anliegen. Liegen die Spannungen korrekt an?",
-        options: {
-            "Ja": "tausche_antriebswagen",
-            "Nein": "prüfe_stromabnehmer"
-        }
-    },
-
-    prüfe_stromabnehmer: {
-        text: "Prüfen Sie den Stromabnehmer",
-        info: "Prüfen Sie die Stromabnehmerkontakte auf Verschmutzungen, lose Kabel oder Beschädigungen.Sind die Stromabnehmer in Ordnung?",
-        options: {
-            "Nein": "tausche_antriebswagen",
-            "Ja": "prüfe_letztes_element_sa"
-        }
-    },
-
-    prüfe_letztes_element_sa: {
-        text: "War das das letzte Element der Anlage?",
-        options: {
-            "Ja": "kurzschluss_schiene",
-            "Nein": "schienenunterbrechung"
-        }
-    },
-
-    prüfe_naechstes_element: {
-        text: "Prüfen Sie das nächste Element",
-        info: "Schieben sie dieses Elemnet in die  \"ZU\" Position. Schieben Sie das nächste Element zur Montageöffnung und nehmen Sie den Antriebswagen aus der Schiene, indem sie das Element bis auf den Boden ablassen.",
-        options: {
-            "Weiter": "spannung_park_stromabnehmer",
-        }
-    },
-
-     kurzschluss_antrieb: {
-        text: "Es liegt ein Kurzschluss an einem Antriebswagen vor!",
-        result: "Prüfen Sie alle Antriebswagen auf Kurzschluss und tauschen Sie defekte Antriebswagen aus!"
-    },
-
-    tausche_kabel:{
-        text: "Das Anschlusskabel von der Steuerung zur Stromschiene ist defekt!",
-        result: "Tauschen Sie das Kabel aus!"
-     },
-
-     tausche_antriebswagen:{
-        text: "Der Antriebswagen ist defekt!",
-        result: "Tauschen Sie den Antriebswagen aus!"
-     },
-
-    spannungsversorgung:{
-        text: "Eine Spannungsversorgung der Steuerung ist defekt!",
-        result: "Tauschen Sie die Steuerung aus!"
-     },
-
-    schienenunterbrechung: {
-        text: "Die Stromschienen sind irgendwo im Schienenverlauf unterbrochen!",
-        result: "Prüfen Sie alle Übergänge der Stromschiene und beheben Sie die Unterbrechung."
-    },
-
-    kurzschluss_schiene: {
-        text: "Der Kurzschluss liegt im Schienensystem",
-        result: "Prüfen Sie die Stromschiene und beheben Sie den Kurzschluss!"
-    },
-
-    ursache_behoben: {
-        text: "Die Fehlerursache ist behoben!",
-        result: "Die Fehlerursache ist behoben!"
-    }
-};
-
-// -------------------------------------
-// Renderer für Schritte & Entscheidungen
-// -------------------------------------
-function renderStep(stepId) {
-    const step = steps[stepId];
-    const app = document.getElementById("app");
-    app.innerHTML = "";
-
-    const div = document.createElement("div");
-    div.className = "step";
-
-    // Text anzeigen
-    if (step.text) {
-        div.innerHTML = `<p>${step.text}</p>`;
-    }
-    
-    // INFOBLOCK UNTER TITEL (NEU)
-    if (step.info) {
-        div.innerHTML += `<div class="infobox">${step.info}</div>`;
-    }
-
-    // Buttons bei Auswahlfragen
-    if (step.options) {
-        Object.entries(step.options).forEach(([label, next]) => {
-            const btn = document.createElement("button");
-            btn.textContent = label;
-            btn.onclick = () => renderStep(next);
-            div.appendChild(btn);
-        });
-    }
-
-    // Ergebnis anzeigen
-    if (step.result) {
-        div.innerHTML += `<div class="result">${step.result}</div>`;
-    }
-
-    app.appendChild(div);
-}
-
-// Diagnose starten
-renderStep("start");
-</script>
 
 </body>
 </html>
