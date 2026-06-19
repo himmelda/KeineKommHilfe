@@ -60,6 +60,7 @@
       const steps = {
         // Page 24 4.2.1.12.1Keine Kommunikation Start
         start: {
+          ID: "p24_q1",
           textKey: "p24_q1_text",
           infoKey: "p24_q1_info",
           options: {
@@ -237,7 +238,8 @@
           textKey: "p28_q1_text",
           infoKey: "p28_q1_info",
           options: {
-            p28_q1_a: "p28_q2",
+            p28_q1_a: "p28_q3",
+            p28_q1_b: "p28_q2",
           },
         },
 
@@ -566,6 +568,7 @@
       // Language selector and renderer
       // ---------------------------
       let currentLang = localStorage.getItem("lang") || "de";
+      let DEBUG = localStorage.getItem("DEBUG") || false;
       let translations = {};
       let currentStep = "start";
 
@@ -595,6 +598,13 @@
         app.innerHTML = "";
 
         const div = document.createElement("div");
+
+        // render debug ID
+        if (DEBUG) {
+          if (step.ID) {
+            div.innerHTML += `<p>${step.ID}</p>`;
+          }
+        }
 
         // render (Main) text
         if (step.textKey) {
