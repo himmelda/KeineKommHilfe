@@ -570,8 +570,11 @@
       // ---------------------------
       // Language selector and renderer
       // ---------------------------
-      let currentLang = localStorage.getItem("lang") || "de";
-      let DEBUG = localStorage.getItem("DEBUG") === "true";
+
+      const params = new URLSearchParams(window.location.search);
+      const langFromUrl = params.get("lang");
+      let currentLang = localStorage.getItem("lang") || langFromUrl || "de";
+      let DEBUG = params.has("DEBUG");
       let translations = {};
       let currentStep = "start";
 
