@@ -1,30 +1,30 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="de">
-<head>
-<meta charset="UTF-8">
-<title>Fehlerdiagnose - Keine Kommunikation</title>
-<style>
-    body {
+  <head>
+    <meta charset="UTF-8" />
+    <title>Fehlerdiagnose - Keine Kommunikation</title>
+    <style>
+      body {
         font-family: Arial, sans-serif;
         margin: 20px;
         background: #f7f7f7;
-    }
-    #container {
+      }
+      #container {
         background: white;
         padding: 20px;
         border-radius: 10px;
         max-width: 700px;
         margin: auto;
-        box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    }
-    h2 {
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+      h2 {
         text-align: center;
-    }
-    .step {
+      }
+      .step {
         margin-top: 20px;
         padding: 10px 0;
-    }
-    button {
+      }
+      button {
         padding: 10px 16px;
         margin: 8px 5px;
         border: none;
@@ -33,551 +33,607 @@
         font-weight: bold;
         background: #0078d4;
         color: white;
-    }
-    button:hover {
+      }
+      button:hover {
         background: #005fa3;
-    }
-    .result {
+      }
+      .result {
         background: #e3f7e3;
         border-left: 5px solid #2d8a2d;
         padding: 15px;
         margin-top: 20px;
         border-radius: 4px;
         font-size: 1.1em;
-    }
-</style>
-</head>
-<body>
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container">
+      <h2 id="title"></h2>
+      <div id="app"></div>
+    </div>
 
-<div id="container">  
-    <h2 id="title"></h2>
-    <div id="app"></div>
-</div>
+    <script>
+      // ---------------------------
+      // Entscheidungslogik aus PDF
+      // ---------------------------
+      const steps = {
+        // Page 24 4.2.1.12.1Keine Kommunikation Start
+        start: {
+          textKey: "p24_q1_text",
+          infoKey: "p24_q1_info",
+          options: {
+            p24_q1_a: "p24_q2",
+            p24_q1_b: "p24_q3",
+            p24_q1_c: "p24_q4",
+          },
+        },
 
-<script>
-// ---------------------------
-// Entscheidungslogik aus PDF
-// ---------------------------
-const steps = {
-    // Page 24 4.2.1.12.1Keine Kommunikation Start
-start: {
-    textKey: "p24_q1_text",
-    infoKey: "p24_q1_info",
-    options: {
-        "p24_q1_a": "p24_q2",
-        "p24_q1_b": "p24_q3",
-        "p24_q1_c": "p24_q4"
-    }
+        p24_q2: {
+          textKey: "p24_q2_text",
+          infoKey: "p24_q2_info",
+          options: {
+            p24_q2_a: "p25_q1",
+          },
+        },
 
-},
+        p24_q3: {
+          textKey: "p24_q3_text",
+          infoKey: "p24_q3_info",
+          options: {
+            p24_q3_a: "p48_q1",
+          },
+        },
 
-p24_q2: {
-    textKey: "p24_q2_text",
-    infoKey: "p24_q2_info",
-    options: {
-        "p24_q2_a": "p25_q1"
-     }
-},
+        p24_q4: {
+          textKey: "p24_q4_text",
+          options: {
+            p24_q4_a: "p48_q1",
+          },
+        },
 
-p24_q3: {
-    textKey: "p24_q3_text",
-    infoKey: "p24_q3_info",
-    options: {
-        "p24_q3_a": "p48_q1"
-     }
-},
+        // Page 48 .4.1.7 Keine Kommunikation Modul
 
-p24_q4: {
-    textKey: "p24_q4_text",
-    options: {
-        "p24_q4_a": "p48_q1"
-     }
-},
+        p48_q1: {
+          textKey: "p48_q1_text",
+          infoKey: "p48_q1_info",
+          options: {
+            p48_q1_a: "p48_q2",
+            p48_q1_b: "p48_q3",
+          },
+        },
 
-// Page 48 .4.1.7 Keine Kommunikation Modul
+        p48_q2: {
+          textKey: "p48_q2_text",
+          infoKey: "p48_q2_info",
+          resultKey: "p48_q2_result",
+        },
 
-p48_q1: {
-    textKey: "p48_q1_text",
-    infoKey: "p48_q1_info",
-    options: {
-        "p48_q1_a": "p48_q2",
-        "p48_q1_b": "p48_q3"
-     }
-},
+        p48_q3: {
+          textKey: "p48_q3_text",
+          infoKey: "p48_q3_info",
+          resultKey: "p48_q3_result",
+        },
 
-p48_q2: {
-    textKey: "p48_q2_text",
-    infoKey: "p48_q2_info",
-    resultKey: "p48_q2_result"
-},
+        // Page 25 4.2.1.12.2 Keine Kommunikation Ein oder alle Elemente,
 
-p48_q3: {
-    textKey: "p48_q3_text", 
-    infoKey: "p48_q3_info",
-    resultKey: "p48_q3_result"
-},
+        p25_q1: {
+          textKey: "p25_q1_text",
+          options: {
+            p25_q1_a: "p26_q1",
+            p25_q1_b: "p35_q1",
+          },
+        },
 
+        p25_q2: {
+          textKey: "p25_q2_text",
+          options: {
+            p25_q2_a: "p29_q1",
+            p25_q2_b: "p35_q1",
+          },
+        },
 
-// Page 25 4.2.1.12.2 Keine Kommunikation Ein oder alle Elemente,
+        // Page 35 4.2.1.12.12 Prüfung Elemente
+        p35_q1: {
+          textKey: "p35_q1_text",
+          infoKey: "p35_q1_info",
+          options: {
+            p35_q1_a: "p35_q2",
+            p35_q1_b: "p35_q3",
+          },
+        },
 
-    p25_q1: {
-        textKey: "p25_q1_text",
-        options: {
-            "p25_q1_a": "p26_q1",
-            "p25_q1_b": "p35_q1"
-        }
-    },
+        p35_q2: {
+          textKey: "p35_q2_text",
+          resultKey: "p35_q2_result",
+        },
 
-    p25_q2: {
-        textKey: "p25_q2_text",
-        options: {
-            "p25_q2_a": "p29_q1",
-            "p25_q2_b": "p35_q1"
-        }
-    },
+        p35_q3: {
+          textKey: "p35_q3_text",
+          infoKey: "p35_q3_info",
+          options: {
+            p35_q3_a: "result_end",
+            p35_q3_b: "p35_q4",
+          },
+        },
 
-    // Page 35 4.2.1.12.12 Prüfung Elemente
-    p35_q1: {
-        textKey: "p35_q1_text",
-        infoKey: "p35_q1_info",
-        options: {
-            "p35_q1_a": "p35_q2",
-            "p35_q1_b": "p35_q3"
-        }
-    },
+        p35_q4: {
+          textKey: "p35_q4_text",
+          resultKey: "p35_q4_result",
+        },
 
-    p35_q2: {
-        textKey: "p35_q2_text",
-        resultKey: "p35_q2_result"
-    },
+        // Page 26 4.2.1.12.3 Prüfung Spannung im Parkbereich
+        p26_q1: {
+          textKey: "p26_q1_text",
+          infoKey: "p26_q1_info",
+          options: {
+            p26_q1_a: "p26_q3",
+            p26_q1_b: "p27_q2",
+          },
+        },
 
-    p35_q3: {
-        textKey: "p35_q3_text",
-        infoKey: "p35_q3_info",
-        options: {
-            "p35_q3_a": "result_end",
-            "p35_q3_b": "p35_q4"
-        }
-    },
+        p26_q2: {
+          textKey: "p26_q2_text",
+          infoKey: "p26_q2_info",
+          options: {
+            p26_q1_a: "p26_q3",
+            p26_q1_b: "p26_q4",
+          },
+        },
 
-    p35_q4: {
-        textKey: "p35_q4_text",
-        resultKey: "p35_q4_result"
-     },
+        p26_q3: {
+          textKey: "p26_q3_text",
+          infoKey: "p26_q3_info",
+          options: {
+            p26_q3_a: "p28_q1",
+          },
+        },
 
+        p26_q4: {
+          textKey: "p26_q4_text",
+          infoKey: "p26_q4_info",
+          options: {
+            p26_q4_a: "p27_q1",
+          },
+        },
 
-
-     // Page 26 4.2.1.12.3 Prüfung Spannung im Parkbereich
-    p26_q1: {
-        textKey: "p26_q1_text",
-        infoKey: "p26_q1_info",
-        options: {
-            "p26_q1_a": "p26_q3",
-            "p26_q1_b": "p27_q2"
-        }
-    },
-
-    p26_q2: {
-        textKey: "p26_q2_text",
-        infoKey: "p26_q2_info",
-        options: {
-            "p26_q1_a": "p26_q3",
-            "p26_q1_b": "p26_q4"
-        }
-    },
-
-    p26_q3: {
-        textKey: "p26_q3_text",
-        infoKey: "p26_q3_info",
-        options: {
-            "p26_q3_a": "p28_q1"
-        }
-    },
-
-    p26_q4: {
-        textKey: "p26_q4_text",
-        infoKey: "p26_q4_info",
-        options: {
-            "p26_q4_a": "p27_q1"
-        }
-    },
-
-    // Page 27  4.2.1.12.4 Prüfung Spannung an Schlossleiste
-    p27_q1: {
-        textKey: "p27_q1_text",
-        infoKey: "p27_q1_info",
-        options: {
-            "p27_q1_a": "p28_q1"
-        }
-    },
+        // Page 27  4.2.1.12.4 Prüfung Spannung an Schlossleiste
+        p27_q1: {
+          textKey: "p27_q1_text",
+          infoKey: "p27_q1_info",
+          options: {
+            p27_q1_a: "p28_q1",
+          },
+        },
 
         p27_q2: {
-        textKey: "p27_q2_text",
-        infoKey: "p27_q2_info",
-        options: {
-            "p27_q2_a": "p27_q3",
-            "p27_q2_b": "p27_q4"
-        }
-    },
+          textKey: "p27_q2_text",
+          infoKey: "p27_q2_info",
+          options: {
+            p27_q2_a: "p27_q3",
+            p27_q2_b: "p27_q4",
+          },
+        },
 
-    p27_q3: {
-        textKey: "p27_q3_text",
-        infoKey: "p27_q3_info",
-        options: {
-            "p27_q3_a": "result_track"
-        }
-    },
+        p27_q3: {
+          textKey: "p27_q3_text",
+          infoKey: "p27_q3_info",
+          options: {
+            p27_q3_a: "result_track",
+          },
+        },
 
-    p27_q4: {
-        textKey: "p27_q4_text",
-        infoKey: "p27_q4_info",
-        options: {
-            "p27_q4_a": "p35_q1"
-        }
-    },
+        p27_q4: {
+          textKey: "p27_q4_text",
+          infoKey: "p27_q4_info",
+          options: {
+            p27_q4_a: "p35_q1",
+          },
+        },
 
-    // Page 28 4.2.1.12.5 Prüfung Spannung an Steuerung
-    
-    p28_q1: {
-        textKey: "p28_q1_text",
-        infoKey: "p28_q1_info",
-        options: {
-            "p28_q1_a": "p28_q2"
-        }
-    },
+        // Page 28 4.2.1.12.5 Prüfung Spannung an Steuerung
+
+        p28_q1: {
+          textKey: "p28_q1_text",
+          infoKey: "p28_q1_info",
+          options: {
+            p28_q1_a: "p28_q2",
+          },
+        },
 
         p28_q2: {
-        textKey: "p28_q2_text",
-        infoKey: "p28_q2_info",
-        options: {
-            "p28_q2_a": "p28_q3",
-            "p28_q2_b": "p28_q4"
-        }
-    },
+          textKey: "p28_q2_text",
+          infoKey: "p28_q2_info",
+          options: {
+            p28_q2_a: "p28_q3",
+            p28_q2_b: "p28_q4",
+          },
+        },
 
-    p28_q3: {
-        textKey: "p28_q3_text",
-        infoKey: "p28_q3_info",
-        options: {
-            "p28_q3_a": "result_control_unit"
-        }
-    },
+        p28_q3: {
+          textKey: "p28_q3_text",
+          infoKey: "p28_q3_info",
+          options: {
+            p28_q3_a: "result_control_unit",
+          },
+        },
 
-    p28_q4: {
-        textKey: "p28_q4_text",
-        infoKey: "p28_q4_info",
-        options: {
-            "p28_q4_a": "p25_q2"
-        }
-    },
+        p28_q4: {
+          textKey: "p28_q4_text",
+          infoKey: "p28_q4_info",
+          options: {
+            p28_q4_a: "p25_q2",
+          },
+        },
 
-    // Page 29 4.2.1.12.5 Prüfung des Anschlusskabels
-    
-    p29_q1: {
-        textKey: "p29_q1_text",
-        infoKey: "p29_q1_info",
-        options: {
-            "p29_q1_a": "p29_q2",
-            "p29_q1_b": "p29_q3"
-        }
-    },    
+        // Page 29 4.2.1.12.5 Prüfung des Anschlusskabels
 
-    p29_q2: {
-        textKey: "p29_q2_text",
-        resultKey: "p29_q2_result"
-    },
+        p29_q1: {
+          textKey: "p29_q1_text",
+          infoKey: "p29_q1_info",
+          options: {
+            p29_q1_a: "p29_q2",
+            p29_q1_b: "p29_q3",
+          },
+        },
 
-    p29_q3: {
-        textKey: "p29_q3_text",
-        infoKey: "p29_q3_info",
-        options: {
-            "p29_q3_a": "result_cable",
-            "p29_q3_b": "p30_q1"
-        }
-     },
+        p29_q2: {
+          textKey: "p29_q2_text",
+          resultKey: "p29_q2_result",
+        },
 
-    // Page 30 4.2.1.12.7 Prüfung Kurzschluss
-    
-    p30_q1: {
-        textKey: "p30_q1_text",
-        infoKey: "p30_q1_info",
-        options: {
-            "p30_q1_a": "p30_q2",
-            "p30_q1_b": "p30_q3"
-        }
-    }, 
+        p29_q3: {
+          textKey: "p29_q3_text",
+          infoKey: "p29_q3_info",
+          options: {
+            p29_q3_a: "result_cable",
+            p29_q3_b: "p30_q1",
+          },
+        },
 
-    p30_q2: {
-        textKey: "p30_q2_text",
-        infoKey: "p30_q2_info",
-        options: {
-            "p30_q2_a": "p30_q3",
-            "p30_q2_b": "p33_q1"
-        }
-    },
+        // Page 30 4.2.1.12.7 Prüfung Kurzschluss
 
-    p30_q3: {
-        textKey: "p30_q3_text",
-        infoKey: "p30_q3_info",
-        options: {
-            "p30_q3_a": "p31_q1",
-            "p30_q3_b": "p32_q1"
-        }
-     },
+        p30_q1: {
+          textKey: "p30_q1_text",
+          infoKey: "p30_q1_info",
+          options: {
+            p30_q1_a: "p30_q2",
+            p30_q1_b: "p30_q3",
+          },
+        },
 
-    // Page 31 4.2.1.12.8 Prüfung Kurzschluss Stromabnehmer
-    
-    p31_q1: {
-        textKey: "p31_q1_text",
-        infoKey: "p31_q1_info",
-        options: {
-            "p31_q1_a": "p31_q2",
-        } 
-    }, 
+        p30_q2: {
+          textKey: "p30_q2_text",
+          infoKey: "p30_q2_info",
+          options: {
+            p30_q2_a: "p30_q3",
+            p30_q2_b: "p33_q1",
+          },
+        },
 
-    p31_q2: {
-        textKey: "p31_q2_text",
-        infoKey: "p31_q2_info",
-        options: {
-            "p31_q2_a": "p31_q3",
-            "p31_q2_b": "p31_q7"
-        }
-     },
+        p30_q3: {
+          textKey: "p30_q3_text",
+          infoKey: "p30_q3_info",
+          options: {
+            p30_q3_a: "p31_q1",
+            p30_q3_b: "p32_q1",
+          },
+        },
 
-     p31_q3: {
-        textKey: "p31_q3_text",
-        infoKey: "p31_q3_info",
-        options: {
-            "p31_q3_a": "p31_q6",
-            "p31_q3_b": "p31_q4"
-        }
-     },
+        // Page 31 4.2.1.12.8 Prüfung Kurzschluss Stromabnehmer
 
-     p31_q4: {
-        textKey: "p31_q4_text",
-        options: {
-            "p31_q4_a": "p31_q5",
-            "p31_q4_b": "result_short_track"
-        }
-     },
+        p31_q1: {
+          textKey: "p31_q1_text",
+          infoKey: "p31_q1_info",
+          options: {
+            p31_q1_a: "p31_q2",
+          },
+        },
+
+        p31_q2: {
+          textKey: "p31_q2_text",
+          infoKey: "p31_q2_info",
+          options: {
+            p31_q2_a: "p31_q3",
+            p31_q2_b: "p31_q7",
+          },
+        },
+
+        p31_q3: {
+          textKey: "p31_q3_text",
+          infoKey: "p31_q3_info",
+          options: {
+            p31_q3_a: "p31_q6",
+            p31_q3_b: "p31_q4",
+          },
+        },
+
+        p31_q4: {
+          textKey: "p31_q4_text",
+          options: {
+            p31_q4_a: "p31_q5",
+            p31_q4_b: "result_short_track",
+          },
+        },
 
         p31_q5: {
-            textKey: "p31_q5_text",
-            infoKey: "p31_q5_info",
-            options: {
-                "p31_q5_a": "p31_q2"
-            }
+          textKey: "p31_q5_text",
+          infoKey: "p31_q5_info",
+          options: {
+            p31_q5_a: "p31_q2",
+          },
         },
 
         p31_q6: {
-            textKey: "p31_q6_text",
-            options: {
-                "p31_q6_a": "p31_q4"
-            }
+          textKey: "p31_q6_text",
+          options: {
+            p31_q6_a: "p31_q4",
+          },
         },
 
         p31_q7: {
-            textKey: "p31_q7_text",
-            resultKey: "p31_q7_result"
+          textKey: "p31_q7_text",
+          resultKey: "p31_q7_result",
         },
 
-    // Page 32 4.2.1.12.9 Prüfung Kurzschluss Antrieb
-    
-    p32_q1: {
-        textKey: "p32_q1_text",
-        infoKey: "p32_q1_info",
-        options: {
-            "p32_q1_a": "p32_q2",
-        } 
-    }, 
+        // Page 32 4.2.1.12.9 Prüfung Kurzschluss Antrieb
 
-    p32_q2: {
-        textKey: "p32_q2_text",
-        infoKey: "p32_q2_info",
-        options: {
-            "p32_q2_a": "p32_q3",
-            "p32_q2_b": "p32_q4"
+        p32_q1: {
+          textKey: "p32_q1_text",
+          infoKey: "p32_q1_info",
+          options: {
+            p32_q1_a: "p32_q2",
+          },
+        },
+
+        p32_q2: {
+          textKey: "p32_q2_text",
+          infoKey: "p32_q2_info",
+          options: {
+            p32_q2_a: "p32_q3",
+            p32_q2_b: "p32_q4",
+          },
+        },
+
+        p32_q3: {
+          textKey: "p32_q3_text",
+          options: {
+            p32_q3_a: "p32_q5",
+          },
+        },
+
+        p32_q4: {
+          textKey: "p32_q4_text",
+          options: {
+            p32_q4_a: "p32_q5",
+          },
+        },
+
+        p32_q5: {
+          infoKey: "p32_q5_info",
+          options: {
+            p32_q5_a: "p32_q6",
+            p32_q5_b: "result_end",
+          },
+        },
+
+        p32_q6: {
+          textKey: "p32_q6_text",
+          options: {
+            p32_q6_a: "p32_q2",
+          },
+        },
+
+        // Page 33 4.2.1.12.10 Prüfung Kurzschluss Element
+
+        p33_q1: {
+          textKey: "p33_q1_text",
+          infoKey: "p33_q1_info",
+          options: {
+            p33_q1_a: "p33_q2",
+          },
+        },
+
+        p33_q2: {
+          textKey: "p33_q2_text",
+          infoKey: "p33_q2_info",
+          options: {
+            p33_q2_a: "p33_q3",
+            p33_q2_b: "p33_q4",
+          },
+        },
+
+        p33_q3: {
+          textKey: "p33_q3_text",
+          options: {
+            p33_q3_a: "p34_q1",
+          },
+        },
+
+        p33_q4: {
+          textKey: "p33_q4_text",
+          options: {
+            p33_q4_a: "p34_q5",
+          },
+        },
+
+        p33_q5: {
+          infoKey: "p33_q5_info",
+          options: {
+            p33_q5_a: "p33_q6",
+            p33_q5_b: "result_end",
+          },
+        },
+
+        p33_q6: {
+          textKey: "p33_q6_text",
+          options: {
+            p33_q6_a: "p34_q2",
+          },
+        },
+
+        // Page 34 4.2.1.12.11 Behebung Kurzschluss Element
+
+        p34_q1: {
+          textKey: "p34_q1_text",
+          infoKey: "p34_q1_info",
+          options: {
+            p34_q1_a: "p34_q2",
+          },
+        },
+
+        p34_q2: {
+          textKey: "p34_q2_text",
+          infoKey: "p34_q2_info",
+          options: {
+            p34_q2_a: "p34_q3",
+            p34_q2_b: "p34_q4",
+          },
+        },
+
+        p34_q3: {
+          textKey: "p34_q3_text",
+          options: {
+            p34_q3_a: "p34_q8",
+          },
+        },
+
+        p34_q4: {
+          textKey: "p34_q4_text",
+          options: {
+            p34_q4_a: "p34_q5",
+          },
+        },
+
+        p34_q5: {
+          textKey: "p34_q5_text",
+          infoKey: "p34_q5_info",
+          options: {
+            p34_q5_a: "p34_q6",
+            p34_q5_b: "p34_q7",
+          },
+        },
+
+        p34_q6: {
+          textKey: "p34_q6_text",
+          options: {
+            p34_q6_a: "p34_q7",
+          },
+        },
+
+        p34_q7: {
+          textKey: "p34_q7_text",
+          options: {
+            p34_q7_a: "p34_q8",
+          },
+        },
+
+        p34_q8: {
+          textKey: "p34_q8_text",
+          options: {
+            p34_q8_a: "p33_q5",
+          },
+        },
+
+        // Various Endings
+
+        result_track: {
+          textKey: "result_track_text",
+          resultKey: "result_track_result",
+        },
+
+        result_short_track: {
+          textKey: "result_short_track_text",
+          resultKey: "result_short_track_result",
+        },
+
+        result_control_unit: {
+          textKey: "result_control_unit_text",
+          resultKey: "result_control_unit_result",
+        },
+
+        result_cable: {
+          textKey: "result_cable_text",
+          resultKey: "result_cable_result",
+        },
+
+        result_end: {
+          resultKey: "result_end_result",
+        },
+      };
+
+      // ---------------------------
+      // Language selector and renderer
+      // ---------------------------
+      let currentLang = localStorage.getItem("lang") || "de";
+      let translations = {};
+      let currentStep = "start";
+
+      async function loadLanguage(lang) {
+        const res = await fetch(`lang/${lang}.json`);
+        translations = await res.json();
+
+        document.getElementById("title").textContent = translations.title;
+        renderStep(currentStep);
+      }
+
+      function setLanguage(lang) {
+        currentLang = lang;
+        localStorage.setItem("lang", lang);
+        loadLanguage(lang);
+      }
+
+      function t(key) {
+        return translations[key] || key;
+      }
+
+      function renderStep(stepId) {
+        currentStep = stepId;
+        const step = steps[stepId];
+        const app = document.getElementById("app");
+
+        app.innerHTML = "";
+
+        const div = document.createElement("div");
+
+        // render (Main) text
+        if (step.textKey) {
+          div.innerHTML += `<p>${t(step.textKey)}</p>`;
         }
-     },
 
-     p32_q3: {
-        textKey: "p32_q3_text",
-        options: {
-            "p32_q3_a": "p32_q5"
+        // render additional info text (optional)
+        if (step.infoKey) {
+          div.innerHTML += `<div class="infobox">${t(step.infoKey)}</div>`;
         }
-     },
 
-     p32_q4: {
-        textKey: "p32_q4_text",
-        options: {
-            "p32_q4_a": "p32_q5"
-        }
-     },
-
-    p32_q5: {
-        infoKey: "p32_q5_info",
-        options: {
-            "p32_q5_a": "p32_q6",
-            "p32_q5_b": "result_end"
-        }
-     },
-
-          p32_q6: {
-        textKey: "p32_q6_text",
-        options: {
-            "p32_q6_a": "p32_q2"
-        }
-     },
-
-    // Page 33 4.2.1.12.9 Prüfung Kurzschluss Element
-    
-    p33_q1: {
-        textKey: "p33_q1_text",
-        infoKey: "p33_q1_info",
-        options: {
-            "p33_q1_a": "p33_q2",
-        } 
-    },
-
-    p33_q2: {
-        textKey: "p33_q2_text",
-        infoKey: "p33_q2_info",
-        options: {
-            "p33_q2_a": "p33_q3",
-            "p33_q2_b": "p33_q4"
-        }
-     },
-
-     p33_q3: {
-        textKey: "p33_q3_text",
-        options: {
-            "p33_q3_a": "p34_q1"
-        }
-     },
-
-    p33_q4: {
-        textKey: "p33_q4_text",
-        options: {
-            "p33_q4_a": "p34_q5"
-        }
-     },
-
-    p33_q5: {
-        infoKey: "p33_q5_info",
-        options: {
-            "p33_q5_a": "p33_q6",
-            "p33_q5_b": "result_end"
-        }
-     },
-
-         p33_q6: {
-        textKey: "p33_q6_text",
-        options: {
-            "p33_q6_a": "p34_q2"
-        }
-     },
-
-
-    // Various Endings
-
-    result_track : {
-        textKey: "result_track_text",
-        resultKey: "result_track_result"
-     },
-
-     result_short_track: {
-        textKey: "result_short_track_text",
-        resultKey: "result_short_track_result"
-     },
-
-     result_control_unit: {
-        textKey: "result_control_unit_text",
-        resultKey: "result_control_unit_result"
-     },
-
-     result_cable: {
-        textKey: "result_cable_text",
-        resultKey: "result_cable_result"
-     },
-
-    result_end: {
-        resultKey: "result_end_result"
-     }
-
-};
-
-// ---------------------------
-// Language selector and renderer
-// ---------------------------
-let currentLang = localStorage.getItem("lang") || "de";
-let translations = {};
-let currentStep = "start";
-
-async function loadLanguage(lang) {
-  const res = await fetch(`lang/${lang}.json`);
-  translations = await res.json();
-
-  document.getElementById("title").textContent = translations.title;
-  renderStep(currentStep);
-}
-
-function setLanguage(lang) {
-  currentLang = lang;
-  localStorage.setItem("lang", lang);
-  loadLanguage(lang);
-}
-
-function t(key) {
-  return translations[key] || key;
-}
-
-function renderStep(stepId) {
-  currentStep = stepId;
-  const step = steps[stepId];
-  const app = document.getElementById("app");
-
-  app.innerHTML = "";
-
-  const div = document.createElement("div");
-
-  // render (Main) text
-  if (step.textKey) {
-    div.innerHTML += `<p>${t(step.textKey)}</p>`;
-  }
-
-  // render additional info text (optional)
-  if (step.infoKey) {
-    div.innerHTML += `<div class="infobox">${t(step.infoKey)}</div>`;
-  }
-
-    // render image (optional)
-    if (step.image) {
-        div.innerHTML += `
+        // render image (optional)
+        if (step.image) {
+          div.innerHTML += `
             <div class="imagebox">
             <img src="${step.image}" alt="Schrittbild">
             </div>
         `;
-    }
+        }
 
-    // render options to choose as buttons
-  if (step.options) {
-    Object.entries(step.options).forEach(([key, next]) => {
-      const btn = document.createElement("button");
-      btn.textContent = t(key);
-      btn.onclick = () => renderStep(next);
-      div.appendChild(btn);
-    });
-  }
+        // render options to choose as buttons
+        if (step.options) {
+          Object.entries(step.options).forEach(([key, next]) => {
+            const btn = document.createElement("button");
+            btn.textContent = t(key);
+            btn.onclick = () => renderStep(next);
+            div.appendChild(btn);
+          });
+        }
 
-  // render result (optional)
-  if (step.resultKey) {
-    div.innerHTML += `<div class="result">${t(step.resultKey)}</div>`;
-  }
+        // render result (optional)
+        if (step.resultKey) {
+          div.innerHTML += `<div class="result">${t(step.resultKey)}</div>`;
+        }
 
-  app.appendChild(div);
-}
+        app.appendChild(div);
+      }
 
-loadLanguage(currentLang);
-</script>
-</body>
+      loadLanguage(currentLang);
+    </script>
+  </body>
 </html>

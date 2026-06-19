@@ -192,6 +192,35 @@
   "p33_q6_text": "Stecken Sie den \"Element\" Stecker des nächsten Elements wieder ein.",
   "p33_q6_a": "Weiter",
 
+  "p34_q1_text": "Behebung des Kurzschlusses im Element",
+  "p34_q1_info": "Öffnen Sie das Element um Zugang zur elementplatine zu erhalten. Ziehen Sie den \"Power\" Stecker von der Elementplatine ab.",
+  "p34_q1_a": "Weiter",
+
+  "p34_q2_text": "Prüfen Sie die Spannungen im Parkbereich",
+  "p34_q2_info": "Prüfen Sie die Spannungen im Parkbereich. An den Schienen 1 und 2 sollte eine Spannung von ~36V anliegen. An den Schienen 2 und 3 sollte eine Spannung von ~12V anliegen. Liegen die Spannungen korrekt an?",
+  "p34_q2_a": "Nein",
+  "p34_q2_b": "Ja",
+
+  "p34_q3_text": "Tauschen Sie das Bolzekkabel aus!",
+  "p34_q3_a": "Weiter",
+
+  "p34_q4_text": "Stecken Sie den \"Power\" Stecker wieder an die Elementplatine. Ziehen Sie alle \"MOTOR\" Stecker von der Elementplatine ab!",
+  "p34_q4_a": "Weiter",
+
+  "p34_q5_text": "Prüfen Sie die Spannungen im Parkbereich",
+  "p34_q5_info": "Prüfen Sie die Spannungen im Parkbereich. An den Schienen 1 und 2 sollte eine Spannung von ~36V anliegen. An den Schienen 2 und 3 sollte eine Spannung von ~12V anliegen. Liegen die Spannungen korrekt an?",
+  "p34_q5_a": "Nein",
+  "p34_q5_b": "Ja",
+
+  "p34_q6_text": "Tauschen Sie die Elementplatine aus!",
+  "p34_q6_a": "Weiter",
+
+  "p34_q7_text": "Prüfen Sie alle Bauteile auf Kurzschluss, welche über den \"Motor\" Stecker angeschlossen sind, und beheben Sie diesen Kurzschluss!",
+  "p34_q7_a": "Weiter",
+
+  "p34_q8_text": "Der Kurzschluss in diesem Element ist behoben!",
+  "p34_q8_a": "Weiter",
+
   "p35_q1_text": "Prüfung der Elemente keine Kommunikation",
   "p35_q1_info": "Schieben Sie alle Elemente in die \"AUF\" Position. Führen Sie den \"AUF\" Befehl aus. Wird wieder die Fehlermeldung \"Fehler Element X Keine Kommunikation\"angezeigt?",
   "p35_q1_a": "Nein",
