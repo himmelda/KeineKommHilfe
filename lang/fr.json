@@ -1,0 +1,253 @@
+{
+  "title": "Diagnostic d'erreur - Aucune communication",
+  "p24_q1_text": "Retirez toutes les fiches \"AUX. unit\" de la centrale",
+  "p24_q1_info": "Exécutez de nouveau une commande. Une erreur élément, une erreur module ou aucune erreur est-elle maintenant signalée ?",
+  "p24_q1_a": "Erreur élément",
+  "p24_q1_b": "Aucune erreur",
+  "p24_q1_c": "Erreur module",
+
+  "p24_q2_text": "Tous les éléments ont-ils, ou l'élément X a-t-il, aucune communication avec la centrale ?",
+  "p24_q2_info": "Ne rebranchez pas les fiches \"AUX. unit\" dans la centrale. Ce n'est qu'après avoir résolu l'erreur des éléments que vous pouvez rebrancher toutes les fiches \"Aux unit\" dans la centrale.",
+  "p24_q2_a": "Continuer",
+
+  "p24_q3_text": "Un module qui n'est pas encore paramétré dans la centrale provoque l'erreur",
+  "p24_q3_info": "Paramétrez tous les modules dans la centrale.",
+  "p24_q3_a": "Continuer",
+
+  "p24_q4_text": "Tous les modules ont-ils, ou le module x a-t-il, aucune communication avec la centrale ?",
+  "p24_q4_a": "Continuer",
+
+  "p48_q1_text": "Il faut maintenant examiner précisément la situation présente. Quand le message d'erreur \"Erreur module - Aucune communication \" est-il apparu pour la première fois ?",
+  "p48_q1_info": "Le message d'erreur a-t-il été affiché directement, sans que le message d'erreur \"Erreur élément - Aucune communication\" ne soit affiché en premier ?",
+  "p48_q1_a": "Après erreur élément",
+  "p48_q1_b": "Directement",
+
+  "p48_q2_text": "Lorsque des modules sont raccordés, les éléments n'ont également aucune communication avec la centrale.",
+  "p48_q2_info": "La connexion des modules raccordés n'est pas correcte, ou une carte électronique d'un des modules raccordés est défectueuse.",
+  "p48_q2_result": " Corrigez les connexions des modules ou remplacez la carte électronique des modules.",
+
+  "p48_q3_text": "Les modules raccordés n'ont aucune communication avec la centrale.",
+  "p48_q3_info": "Le câblage électrique du module est défectueux ou l'adresse n'est pas réglée correctement",
+  "p48_q3_result": "Vérifiez le câblage électrique du module ou le réglage de l'adresse du module.",
+
+  "p25_q1_text": "Combien d'éléments n'ont aucune communication avec la centrale ?",
+  "p25_q1_a": "Tous",
+  "p25_q1_b": "Un",
+
+  "p25_q2_text": "La cloison était-elle déjà entièrement en service ?",
+  "p25_q2_a": "Non",
+  "p25_q2_b": "Oui",
+
+  "p26_q1_text": "Vérifiez les tensions dans la zone de stationnement",
+  "p26_q1_info": "Activez la tension à l'aide de la commande \" EIN\". Une tension d'environ ~36V doit être présente sur les rails d'alimentation 1 et 2. La tension est-elle correcte ?",
+  "p26_q1_a": "Non",
+  "p26_q1_b": "Oui",
+
+  "p26_q2_text": "Vérifiez d'autres tensions dans la zone de stationnement",
+  "p26_q2_info": "Mesurez les tensions sur les rails de données dans la zone de stationnement. Une tension d'environ ~12V devrait être présente sur les rails d'alimentation 2 et 3. La tension est-elle correcte ?",
+  "p26_q2_a": "Non",
+  "p26_q2_b": "Oui",
+
+  "p26_q3_text": "Les tensions dans la zone de stationnement ne sont pas correctes !",
+  "p26_q3_info": "Coupez la tension 36V du rail d'alimentation à l'aide de la commande \" STOP\".",
+  "p26_q3_a": "Continuer",
+
+  "p26_q4_text": "Les tensions dans la zone de stationnement sont correctes !",
+  "p26_q4_info": "Coupez la tension 36V du rail d'alimentation à l'aide de la commande \" STOP\".",
+  "p26_q4_a": "Continuer",
+
+  "p27_q1_text": "Vérifiez les tensions sur la barre de serrure.",
+  "p27_q1_info": "Activez la tension à l'aide de la commande \" EIN\". Une tension d'environ ~36V doit être présente sur les rails d'alimentation 1 et 2. La tension est-elle correcte ?",
+  "p27_q1_a": "Non",
+  "p27_q1_b": "Oui",
+
+  "p27_q2_text": "Vérifiez d'autres tensions sur la barre de serrure.",
+  "p27_q2_info": "Mesurez les tensions sur les rails de données de la barre de serrure. Une tension d'environ ~12V devrait être présente sur les rails d'alimentation 2 et 3. La tension est-elle correcte ?",
+  "p27_q2_a": "Non",
+  "p27_q2_b": "Oui",
+
+  "p27_q3_text": "Les tensions sur la barre de serrure ne sont pas correctes !",
+  "p27_q3_info": "Coupez la tension 36V du rail d'alimentation à l'aide de la commande \" STOP\".",
+  "p27_q3_a": "Continuer",
+
+  "p27_q4_text": "Les tensions sur la barre de serrure sont correctes !",
+  "p27_q4_info": "Coupez la tension 36V du rail d'alimentation à l'aide de la commande \" STOP\".",
+  "p27_q4_a": "Continuer",
+
+  "p28_q1_text": "Vérifiez les tensions sur la centrale.",
+  "p28_q1_info": "Retirez la fiche \"Power Rail\" de la centrale. Activez la tension à l'aide de la commande \" EIN\". Mesurez les tensions sur la centrale. Une tension d'environ ~36V doit être présente sur les contacts 1 et 2. La tension est-elle correcte ?",
+  "p28_q1_a": "Non",
+  "p28_q1_b": "Oui",
+
+  "p28_q2_text": "Vérifiez d'autres tensions sur la centrale.",
+  "p28_q2_info": "Mesurez les tensions sur les contacts de données de la centrale. Une tension d'environ ~12V devrait être présente sur les contacts 2 et 3. La tension est-elle correcte ?",
+  "p28_q2_a": "Non",
+  "p28_q2_b": "Oui",
+
+  "p28_q3_text": "Les tensions sur la centrale ne sont pas correctes !",
+  "p28_q3_info": "Coupez la tension 36V de la centrale à l'aide de la commande \" STOP\".",
+  "p28_q3_a": "Continuer",
+
+  "p28_q4_text": "Les tensions sur la centrale sont correctes !",
+  "p28_q4_info": "Coupez la tension 36V de la centrale à l'aide de la commande \" STOP\".",
+  "p28_q4_a": "Continuer",
+
+  "p29_q1_text": "Contrôlez le câblage du rail d'alimentation.",
+  "p29_q1_info": "Retirez la fiche \"Power Rail\" de la centrale. Ouvrez le boîtier de la fiche \"Power Rail\". Vérifiez la connexion de la fiche aux rails d'alimentation en contrôlant les numéros des fils. Le fil 1 devrait être sur l'emplacement 1, le fil 2 sur 2 et le fil 3 sur 3. Le câblage est-il correct ?",
+  "p29_q1_a": "Non",
+  "p29_q1_b": "Oui",
+
+  "p29_q2_text": "Corrigez le câblage.",
+  "p29_q2_result": "La cause de l'erreur est résolue !",
+
+  "p29_q3_text": "Vérifiez la connexion électrique de la fiche au rail d'alimentation.",
+  "p29_q3_info": "Vérifiez la connexion par un test de continuité. 1 doit aller à 1, 2 à 2 et 3 à 3. La connexion électrique est-elle correcte ?",
+  "p29_q3_a": "Non",
+  "p29_q3_b": "Oui",
+
+  "P30_q1_text": "Une tension est court-circuitée quelque part !",
+  "p30_q1_info": "Rebranchez la fiche \"Power Rail\" dans la centrale. S'agit-il d'un MOVEO / Variflex ou d'une cloison en verre ?",
+  "p30_q1_a": "MOVEO / Variflex",
+  "p30_q1_b": "Verre",
+
+  "p30_q2_text": "Retirez la fiche \"Element\" de la carte d'entraînement sur tous les éléments.",
+  "p30_q2_info": "Vérifiez les tensions dans la zone de stationnement. Sont-elles correctes ?",
+  "p30_q2_a": "Non",
+  "p30_q2_b": "Oui",
+
+  "p30_q3_text": "Retirez la fiche \"Power\" de la carte d'entraînement sur tous les éléments.",
+  "p30_q3_info": "Vérifiez les tensions dans la zone de stationnement. Sont-elles correctes ?",
+  "p30_q3_a": "Non",
+  "p30_q3_b": "Oui",
+
+  "p31_q1_text": "Vérification du court-circuit des collecteurs de courant",
+  "p31_q1_info": " Poussez tous les éléments en position \"AUF\". Ouvrez le rail en retirant les pièces de montage. Déplacez le premier élément vers l'ouverture de montage et retirez le chariot d'entraînement du rail en posant l'élément sur le sol.",
+  "p31_q1_a": "Continuer",
+
+  "p31_q2_text": "Vérifiez les tensions dans la zone de stationnement",
+  "p31_q2_info": "Vérifiez les tensions dans la zone de stationnement. Une tension d'environ ~36V devrait être présente sur les rails 1 et 2. Une tension d'environ ~12V devrait être présente sur les rails 2 et 3. Les tensions sont-elles correctes ?",
+  "p31_q2_a": "Oui",
+  "p31_q2_b": "Non",
+
+  "p31_q3_text": "Vérifiez les collecteurs de courant.",
+  "p31_q3_info": "Vérifiez si les collecteurs de courant présentent des contacts cassés ou des fils desserrés. Les collecteurs de courant sont-ils en bon état ?",
+  "p31_q3_a": "Non",
+  "p31_q3_b": "Oui",
+
+  "p31_q4_text": "Était-ce le dernier élément de l'installation ?",
+  "p31_q4_a": "Non",
+  "p31_q4_b": "Oui",
+
+  "p31_q5_text": "Vérifiez l'élément suivant.",
+  "p31_q5_info": " Remettez le chariot d'entraînement dans le rail et poussez l'élément en position \"ZU\". Poussez l'élément suivant vers l'ouverture de montage et déposez-le au sol.",
+  "p31_q5_a": "Continuer",
+
+  "p31_q6_text": "Remplacez le chariot d'entraînement !",
+  "p31_q6_a": "Continuer",
+
+  "p31_q7_text": "Le chariot d'entraînement est défectueux !",
+  "p31_q7_result": "Remplacez le chariot d'entraînement !",
+
+  "p32_q1_text": "Vérification d'un court-circuit des entraînements",
+  "p32_q1_info": "Poussez tous les éléments en position \"AUF\".  Rebranchez la fiche \"Power\" du premier élément.",
+  "p32_q1_a": "Continuer",
+
+  "p32_q2_text": "Vérifiez les tensions dans la zone de stationnement",
+  "p32_q2_info": "Vérifiez les tensions dans la zone de stationnement. Une tension d'environ ~36V devrait être présente sur les rails 1 et 2. Une tension d'environ ~12V devrait être présente sur les rails 2 et 3. Les tensions sont-elles correctes ?",
+  "p32_q2_a": "Non",
+  "p32_q2_b": "Oui",
+
+  "p32_q3_text": "Remplacez le chariot d'entraînement !",
+  "p32_q3_a": "Continuer",
+
+  "p32_q4_text": "Le chariot d'entraînement est en bon état !",
+  "p32_q4_a": "Continuer",
+
+  "p32_q5_info": "Était-ce le dernier élément de l'installation ?",
+  "p32_q5_a": "Non",
+  "p32_q5_b": "Oui",
+
+  "p32_q6_text": "Rebranchez la fiche \"Power\" du prochain élément.",
+  "p32_q6_a": "Continuer",
+
+  "p33_q1_text": "Vérification d'un court-circuit dans l'élément",
+  "p33_q1_info": "Poussez tous les éléments en position \"AUF\". Rebranchez la fiche \"Element\" du premier élément.",
+  "p33_q1_a": "Continuer",
+
+  "p33_q2_text": "Vérifiez les tensions dans la zone de stationnement",
+  "p33_q2_info": "Vérifiez les tensions dans la zone de stationnement. Une tension d'environ ~36V devrait être présente sur les rails 1 et 2. Une tension d'environ ~12V devrait être présente sur les rails 2 et 3. Les tensions sont-elles correctes ?",
+  "p33_q2_a": "Non",
+  "p33_q2_b": "Oui",
+
+  "p33_q3_text": "Le court-circuit se trouve dans cet élément !",
+  "p33_q3_a": "Continuer",
+
+  "p33_q4_text": "Cet élément est en bon état !",
+  "p33_q4_a": "Continuer",
+
+  "p33_q5_info": "Était-ce le dernier élément de l'installation ?",
+  "p33_q5_a": "Non",
+  "p33_q5_b": "Oui",
+
+  "p33_q6_text": "Rebranchez la fiche \"Element\" du prochain élément.",
+  "p33_q6_a": "Continuer",
+
+  "p34_q1_text": "Élimination du court-circuit dans l'élément",
+  "p34_q1_info": "Ouvrez l'élément afin d'accéder à la carte électronique de l'élément. Débranchez la fiche \"Power\" de la carte électronique de l'élément.",
+  "p34_q1_a": "Continuer",
+
+  "p34_q2_text": "Vérifiez les tensions dans la zone de stationnement",
+  "p34_q2_info": "Vérifiez les tensions dans la zone de stationnement. Une tension d'environ ~36V devrait être présente sur les rails 1 et 2. Une tension d'environ ~12V devrait être présente sur les rails 2 et 3. Les tensions sont-elles correctes ?",
+  "p34_q2_a": "Non",
+  "p34_q2_b": "Oui",
+
+  "p34_q3_text": "Remplacez le câble Bolzek !",
+  "p34_q3_a": "Continuer",
+
+  "p34_q4_text": "Rebranchez la fiche \"Power\" sur la carte électronique de l'élément. Débranchez toutes les fiches \"MOTOR\" de la carte électronique de l'élément !",
+  "p34_q4_a": "Continuer",
+
+  "p34_q5_text": "Vérifiez les tensions dans la zone de stationnement",
+  "p34_q5_info": "Vérifiez les tensions dans la zone de stationnement. Une tension d'environ ~36V devrait être présente sur les rails 1 et 2. Une tension d'environ ~12V devrait être présente sur les rails 2 et 3. Les tensions sont-elles correctes ?",
+  "p34_q5_a": "Non",
+  "p34_q5_b": "Oui",
+
+  "p34_q6_text": "Remplacez la carte électronique de l'élément !",
+  "p34_q6_a": "Continuer",
+
+  "p34_q7_text": "Vérifiez tous les composants raccordés via la fiche \"Motor\" pour détecter un court-circuit, et supprimez ce court-circuit !",
+  "p34_q7_a": "Continuer",
+
+  "p34_q8_text": "Le court-circuit dans cet élément est résolu !",
+  "p34_q8_a": "Continuer",
+
+  "p35_q1_text": "Vérification de l'absence de communication des éléments",
+  "p35_q1_info": "Poussez tous les éléments en position \"AUF\". Exécutez la commande \"AUF\". Le message d'erreur \"Erreur élément X Aucune communication\" s'affiche-t-il de nouveau ?",
+  "p35_q1_a": "Non",
+  "p35_q1_b": "Oui",
+
+  "p35_q2_text": "Les rails d'alimentation sont interrompus quelque part le long du parcours des rails !",
+  "p35_q2_result": "Vérifiez tous les passages du rail d'alimentation et corrigez l'interruption.",
+
+  "p35_q3_text": "Vérifiez le chariot d'entraînement.",
+  "p35_q3_info": "Vérifiez et corrigez le bon branchement de la fiche \"Power\" sur la carte d'entraînement de l'élément X. Vérifiez et corrigez les réglages d'adresse sur les commutateurs d'adresse de TOUTES les cartes d'entraînement ! Exécutez de nouveau la commande \"AUF\". Le message d'erreur \"Erreur élément X Aucune communication\" s'affiche-t-il de nouveau ?",
+  "p35_q3_a": "Non",
+  "p35_q3_b": "Oui",
+
+  "p35_q4_text": "Le chariot d'entraînement de l'élément X est défectueux !",
+  "p35_q4_result": "Remplacez le chariot d'entraînement !",
+
+  "result_track_text": "Les rails d'alimentation sont interrompus quelque part le long du parcours des rails !",
+  "result_track_result": "Vérifiez tous les passages du rail d'alimentation et corrigez l'interruption !",
+
+  "result_short_track_text": "Le court-circuit se trouve dans le système de rails !",
+  "result_short_track_result": "Vérifiez les rails d'alimentation et éliminez la cause du court-circuit !",
+
+  "result_control_unit_text": "L'alimentation de la centrale est défectueuse !",
+  "result_control_unit_result": "Remplacez la centrale !",
+
+  "result_cable_text": "Le câble de raccordement est défectueux !",
+  "result_cable_result": "Remplacez le câble de raccordement !",
+
+  "result_end_result": "La cause de l'erreur est résolue !"
+}
