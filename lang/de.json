@@ -1,0 +1,230 @@
+{
+  "title": "Fehlerdiagnose - Keine Kommunikation",
+  "p24_q1_text": "Ziehen Sie alle \"AUX. unit\"-Stecker aus der Steuerung",
+  "p24_q1_info": "Führen Sie erneut einen Befehl aus. Wird jetzt ein ElementFehler, ein Modulfehler oder gar kein Fehler gemeldet?",
+  "p24_q1_a": "Fehler Element",
+  "p24_q1_b": "Kein Fehler",
+  "p24_q1_c": "Fehler Modul",
+
+  "p24_q2_text": "Alle Elemente haben oder Element X hat keine Kommunikation mit der Steuerung?",
+  "p24_q2_info": "Stecken Die die \"AUX. unit\"-Stecker nicht wieder in die Steuerung. Erst nachdem Sie den Fehler der Elemente behoben haben können sie alle \"Aux unit\"-Stecker wieder in die Steuerung stecken.",
+  "p24_q2_a": "Weiter",
+
+  "p24_q3_text": "Ein Modul, welches noch nicht in der Steuerung parametriert ist, verursacht den Fehler",
+  "p24_q3_info": "Parametrieren Sie alle Module in der Steuerung.",
+  "p24_q3_a": "Weiter",
+
+  "p24_q4_text": "Alle Module haben oder Modul x hat keine Kommunikation mit der Steuerung?",
+  "p24_q4_a": "Weiter",
+
+  "p48_q1_text": "Es muss jetzt die vorliegende Situation genau betrachtet werden. Wann kam die Fehlermeldung \"Fehler Modul - Keine Kommunikation \" zum ersten Mal?",
+  "p48_q1_info": "Ist die Fehlermeldung direkt angezeigt worden sonder es kam zuerst die Fehlermeldung \"Fehler Element - Keine Kommunikation\"",
+  "p48_q1_a": "Nach Fehler Element",
+  "p48_q1_b": "Direkt",
+
+  "p48_q2_text": "Bei angeschlossenen Modulen haben auch die Elemente keine Kommunikation mit der Steuerung.",
+  "p48_q2_info": "Eine Verbindungen der angeschlossenen Module ist nicht korrekt, oder eine Elementplatine der angeschlossenen Module ist defekt.",
+  "p48_q2_result": " Korrigieren Sie die Verbindungen der Module oder tauschen Sie die Elementplatine der Module aus.",
+
+  "p48_q3_text": "Die angeschlossenen Modulen haben keineKommunikation mit der Steuerung.",
+  "p48_q3_info": "Die elektrische Verdrahtung des Moduls ist fehlerhaft oder die Adresse ist nicht korrekt eingestellt",
+  "p48_q3_result": "Prüfen Sie die elektrische Verdrahtung des Moduls oder die Adresseinstellung des Moduls.",
+
+  "p25_q1_text": "Wie viele Elemente haben keine Kommunikation mit der Steuerung?",
+  "p25_q1_a": "Alle",
+  "p25_q1_b": "Eins",
+
+  "p25_q2_text": "War die Trennwand schon einmal vollständig in Betrieb?",
+  "p25_q2_a": "Nein",
+  "p25_q2_b": "Ja",
+
+  "p26_q1_text": "Prüfen Sie die Spannungen im Parkbereich",
+  "p26_q1_info": "Schalten Sie die Spannung mithilfe des \" EIN\" Befehls an. An den Stromschienen 1 und 2 soll eine Spannung von ~36V anliegen.  Liegt die Spannungen korrekt an?",
+  "p26_q1_a": "Nein",
+  "p26_q1_b": "Ja",
+
+  "p26_q2_text": "Prüfen Sie weitere Spannungen im Parkbereich",
+  "p26_q2_info": "Messen Sie die Spannungen an den Daten-Schienen im Parkbereich. An den Stromschienen 2 und 3 sollte eine Spannung von ~12V anliegen. Liegt die Spannungen korrekt an?",
+  "p26_q2_a": "Nein",
+  "p26_q2_b": "Ja",
+
+  "p26_q3_text": "Die Spannungen sind im Parkbereich nicht OK!",
+  "p26_q3_info": "Schalten Sie die 36V Spannung der Stromschiene mit Hilfe des \" STOP\" Befehls aus.",
+  "p26_q3_a": "Weiter",
+
+  "p26_q4_text": "Die Spannungen sind im Parkbereich OK!",
+  "p26_q4_info": "Schalten Sie die 36V Spannung der Stromschiene mit Hilfe des \" STOP\" Befehls aus.",
+  "p26_q4_a": "Weiter",
+
+  "p27_q1_text": "Prüfen Sie die Spannungen an der Schlossleiste.",
+  "p27_q1_info": "Schalten Sie die Spannung mithilfe des \" EIN\" Befehls an. An den Stromschienen 1 und 2 soll eine Spannung von ~36V anliegen.  Liegt die Spannungen korrekt an?",
+  "p27_q1_a": "Nein",
+  "p27_q1_b": "Ja",
+
+  "p27_q2_text": "Prüfen Sie weitere Spannungen an der Schlossleiste.",
+  "p27_q2_info": "Messen Sie die Spannungen an den Daten-Schienen an der Schlossleiste. An den Stromschienen 2 und 3 sollte eine Spannung von ~12V anliegen. Liegt die Spannungen korrekt an?",
+  "p27_q2_a": "Nein",
+  "p27_q2_b": "Ja",
+
+  "p27_q3_text": "Die Spannungen sind an der Schlossleiste nicht OK!",
+  "p27_q3_info": "Schalten Sie die 36V Spannung der Stromschiene mit Hilfe des \" STOP\" Befehls aus.",
+  "p27_q3_a": "Weiter",
+
+  "p27_q4_text": "Die Spannungen sind an der Schlossleiste OK!",
+  "p27_q4_info": "Schalten Sie die 36V Spannung der Stromschiene mit Hilfe des \" STOP\" Befehls aus.",
+  "p27_q4_a": "Weiter",
+
+  "p28_q1_text": "Prüfen Sie die Spannungen an der Steuerung.",
+  "p28_q1_info": "Ziehen sie den \"Power Rail\" Stecker von der Steuerung. Schalten Sie die Spannung mithilfe des \" EIN\" Befehls an. Messen Sie die Spannungen an der Steuerung. An den Kontakten 1 und 2 soll eine Spannung von ~36V anliegen.  Liegt die Spannungen korrekt an?",
+  "p28_q1_a": "Nein",
+  "p28_q1_b": "Ja",
+
+  "p28_q2_text": "Prüfen Sie weitere Spannungen an der Steuerung.",
+  "p28_q2_info": "Messen Sie die Spannungen an den Daten-Kontakten an der Steuerung. An den Kontakten 2 und 3 sollte eine Spannung von ~12V anliegen. Liegt die Spannungen korrekt an?",
+  "p28_q2_a": "Nein",
+  "p28_q2_b": "Ja",
+
+  "p28_q3_text": "Die Spannungen sind an der Steuerung nicht OK!",
+  "p28_q3_info": "Schalten Sie die 36V Spannung der Steuerung mit Hilfe des \" STOP\" Befehls aus.",
+  "p28_q3_a": "Weiter",
+
+  "p28_q4_text": "Die Spannungen sind an der Steuerung OK!",
+  "p28_q4_info": "Schalten Sie die 36V Spannung der Steuerung mit Hilfe des \" STOP\" Befehls aus.",
+  "p28_q4_a": "Weiter",
+
+  "p29_q1_text": "Kontrollieren sie die Verdrahtung der Stromschiene.",
+  "p29_q1_info": "Ziehen Sie den \"Power Rail\" Stecker von der Steuerung. Öffnen Sie das Gehäuse des \"Power Rail\" Steckers. Prüfen Sie die Verbindung vom Stecker zu den Stromschienen durch eine Kontrolle der Adernummern. Ader 1 sollte in Steckplatz 1 anliegen, Ader 2 auf 2 und Ader 3 auf 3. Liegt die Verdrahtung korrekt an?",
+  "p29_q1_a": "Nein",
+  "p29_q1_b": "Ja",
+
+  "p29_q2_text": "Korriggieren Sie die Verdrahtung.",
+  "p29_q2_result": "Die Fehlerursache ist behoben!",
+
+  "p29_q3_text": "Prüfen sie die elektrische Verbindung vom Stecker zu der Stromschiene.",
+  "p29_q3_info": "Prüfen Sie die Verbindung mit einer Durchgansmessung. 1 sollte zu 1 gehen, 2 zu 2 und 3 zu 3. Ist die Elektrische Verbindung in Ordnung?",
+  "p29_q3_a": "Nein",
+  "p29_q3_b": "Ja",
+
+  "P30_q1_text": "Eine Spannung wird irgendwo kurzgeschlossen!",
+  "p30_q1_info": "Stecken Sie den \"Power Rail\" Stecker in die Steuerung. Handelt es sich um eine MOVEO / Variflex oder eine Glas Trennwand?",
+  "p30_q1_a": "MOVEO / Variflex",
+  "p30_q1_b": "Glas",
+
+  "p30_q2_text": "Ziehen Sie bei allen Elementen den \"Elemen\" Stecker der Antriebsplatine ab.",
+  "p30_q2_info": "Prüfen Sie die Spannungen im Parkbereich. Sind die diese in Ordnung?",
+  "p30_q2_a": "Nein",
+  "p30_q2_b": "Ja",
+
+  "p30_q3_text": "Ziehen Sie bei allen Elementen den \"Power\" Stecker der Antriebsplatine ab.",
+  "p30_q3_info": "Prüfen Sie die Spannungen im Parkbereich. Sind die diese in Ordnung?",
+  "p30_q3_a": "Nein",
+  "p30_q3_b": "Ja",
+
+  "p31_q1_text": "Prüfung auf Kurzschluss der Stromabnehmer",
+  "p31_q1_info": " Schieben Sie alle Elemente in deren \"AUF\" Position. Öffnen Die die Schiene durch Entfernen der Montgestücke. Schieben Sie das erste Element zur Montageöffnung und nhemen Sie denAntriebswagn aus der Schiene indem Sie das Element auf den Boden abstellen.",
+  "p31_q1_a": "Weiter",
+
+  "p31_q2_text": "Prüfen Sie die Spannungen im Parkbereich",
+  "p31_q2_info": "Prüfen Sie die Spannungen im Parkbereich. An den Schienen 1 und 2 sollte eine Spannung von ~36V anliegen. An den Schienen 2 und 3 sollte eine Spannung von ~12V anliegen. Liegen die Spannungen korrekt an?",
+  "p31_q2_a": "Ja",
+  "p31_q2_b": "Nein",
+
+  "p31_q3_text": "Prüfen Sie die Stromabnehmer.",
+  "p31_q3_info": "Prüfen Sie ob die Stromabnehmer gebrochene Kontakte oder lose Leitungen aufweisen. Sind die Stromabnehmer in Ordnung?",
+  "p31_q3_a": "Nein",
+  "p31_q3_b": "Ja",
+
+  "p31_q4_text": "War dies das letzte Element der Anlage?",
+  "p31_q4_a": "Nein",
+  "p31_q4_b": "Ja",
+
+  "p31_q5_text": "Prüfen Sie das nächste Element.",
+  "p31_q5_info": " Setzen Sie den Antriebswagen wieder in die Schiene und schieben Sie das Element an dessen \"ZU\" Position. Schieben Sie das nächste Element zur Montageöffnung und lassen es auf den Boden ab.",
+  "p31_q5_a": "Weiter",
+
+  "p31_q6_text": "Tauschen Sie den Antriebswagen aus!",
+  "p31_q6_a": "Weiter",
+
+  "p31_q7_text": "Der Antriebswagen ist defekt!",
+  "p31_q7_result": "Tauschen Sie den Antriebswagen aus!",
+
+  "p32_q1_text": "Prüfung auf Kurzschluss der Antriebe",
+  "p32_q1_info": "Schieben Sie alle Elemente in deren \"AUF\"Position.  Stecken Sie den \"Power\" Stecker vom ersten element wieder ein.",
+  "p32_q1_a": "Weiter",
+
+  "p32_q2_text": "Prüfen Sie die Spannungen im Parkbereich",
+  "p32_q2_info": "Prüfen Sie die Spannungen im Parkbereich. An den Schienen 1 und 2 sollte eine Spannung von ~36V anliegen. An den Schienen 2 und 3 sollte eine Spannung von ~12V anliegen. Liegen die Spannungen korrekt an?",
+  "p32_q2_a": "Nein",
+  "p32_q2_b": "Ja",
+
+  "p32_q3_text": "Tauschen Sie den Antriebswagen aus!",
+  "p32_q3_a": "Weiter",
+
+  "p32_q4_text": "Der Antriebswagen ist in Ordnung!",
+  "p32_q4_a": "Weiter",
+
+  "p32_q5_info": "War dies das letzte Element der Anlage?",
+  "p32_q5_a": "Nein",
+  "p32_q5_b": "Ja",
+
+  "p32_q6_text": "Stecken Sie den \"Power\" Stecker des nächsten Elements wieder ein.",
+  "p32_q6_a": "Weiter",
+
+  "p33_q1_text": "Prüfung auf Kurzschluss im Element",
+  "p33_q1_info": "Schieben Sie alle Elemente in deren \"AUF\" Position. Stecken Sie den \"Element\" Stecker des ersten Elements wieder ein.",
+  "p33_q1_a": "Weiter",
+
+  "p33_q2_text": "Prüfen Sie die Spannungen im Parkbereich",
+  "p33_q2_info": "Prüfen Sie die Spannungen im Parkbereich. An den Schienen 1 und 2 sollte eine Spannung von ~36V anliegen. An den Schienen 2 und 3 sollte eine Spannung von ~12V anliegen. Liegen die Spannungen korrekt an?",
+  "p33_q2_a": "Nein",
+  "p33_q2_b": "Ja",
+
+  "p33_q3_text": "Der Kurzschluss liegt in diesem Element!",
+  "p33_q3_a": "Weiter",
+
+  "p33_q4_text": "Dieses Element ist in Ordnung!",
+  "p33_q4_a": "Weiter",
+
+  "p33_q5_info": "War dies das letzte Element der Anlage?",
+  "p33_q5_a": "Nein",
+  "p33_q5_b": "Ja",
+
+  "p33_q6_text": "Stecken Sie den \"Element\" Stecker des nächsten Elements wieder ein.",
+  "p33_q6_a": "Weiter",
+
+  "p35_q1_text": "Prüfung der Elemente keine Kommunikation",
+  "p35_q1_info": "Schieben Sie alle Elemente in die \"AUF\" Position. Führen Sie den \"AUF\" Befehl aus. Wird wieder die Fehlermeldung \"Fehler Element X Keine Kommunikation\"angezeigt?",
+  "p35_q1_a": "Nein",
+  "p35_q1_b": "Ja",
+
+  "p35_q2_text": "Die Stromschienen sind irgendwo im Schienenverlauf unterbrochen!",
+  "p35_q2_result": "Prüfen Sie alle Übergänge der Stromschiene und beheben Sie die Unterbrechung.",
+
+  "p35_q3_text": "Prüfen Sie den Antriebswagen.",
+  "p35_q3_info": "Prüfen und korrigieren sie das korrekte Einstecken der \"Power\" Steckers auf der Antriebsplatine von Element X. Prüfen und korrigieren Sie die Adresseinstellungen an den Adressschaltern ALLER Antriebsplatinen! Führen Sie den  \"AUF\" Befehl erneut aus. Wird wieder die Fehlermeldung \"Fehler Element X Keine Kommunikation\"angezeigt?",
+  "p35_q3_a": "Nein",
+  "p35_q3_b": "Ja",
+
+  "p35_q4_text": "Der Antriebswagen von Element X ist defekt!",
+  "p35_q4_result": "Tauschen Sie den Antriebswagen aus!",
+
+  "result_track_text": "Die Stromschienen sind irgendwo im Schienenverlauf unterbrochen!",
+  "result_track_result": "Prüfen sie alle Übergänge der Stromschiene und beheben Sie die Unterbrechung!",
+
+  "result_short_track_text": "Der Kurzschluss liegt innerhalb des Schienensystems!",
+  "result_short_track_result": "Prüfen Sie die Stromschienen und beseitigen Sie die Ursache des Kurzschlusses!",
+
+  "result_control_unit_text": "Eine Spannungsversorgung der Steuerung ist defekt!",
+  "result_control_unit_result": "Tauschen Sie die Steuerung aus!",
+
+  "result_cable_text": "Das Anschlusskabel ist defekt!",
+  "result_cable_result": "Tauschen Sie das Anschlusskabel aus!",
+
+  "result_end_result": "Die Fehlerursache ist behoben!",
+
+  "__comment": "TO REVIEW",
+  "check_drive": "Prüfen Sie den Antriebswagen",
+  "check_drive_info": "Prüfen Sie den Power-Stecker und die Adresseinstellungen.",
+  "drive_defect": "Der Antriebswagen ist defekt!",
+  "replace_drive": "Tauschen Sie den Antriebswagen aus!"
+}
