@@ -252,11 +252,5 @@
   "result_cable_text": "Das Anschlusskabel ist defekt!",
   "result_cable_result": "Tauschen Sie das Anschlusskabel aus!",
 
-  "result_end_result": "Die Fehlerursache ist behoben!",
-
-  "__comment": "TO REVIEW",
-  "check_drive": "Prüfen Sie den Antriebswagen",
-  "check_drive_info": "Prüfen Sie den Power-Stecker und die Adresseinstellungen.",
-  "drive_defect": "Der Antriebswagen ist defekt!",
-  "replace_drive": "Tauschen Sie den Antriebswagen aus!"
+  "result_end_result": "Die Fehlerursache ist behoben!"
 }
