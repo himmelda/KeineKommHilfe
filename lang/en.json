@@ -1,0 +1,253 @@
+{
+  "title": "Fault diagnosis - No communication",
+  "p24_q1_text": "Disconnect all \"AUX. unit\" connectors from the control unit",
+  "p24_q1_info": "Execute a command again. Is an element error, a module error, or no error reported now?",
+  "p24_q1_a": "Element error",
+  "p24_q1_b": "No error",
+  "p24_q1_c": "Module error",
+
+  "p24_q2_text": "Do all elements have no communication with the control unit, or does element X have no communication with the control unit?",
+  "p24_q2_info": "Do not plug the \"AUX. unit\" connectors back into the control unit. Only after you have resolved the error of the elements can you plug all \"Aux unit\" connectors back into the control unit.",
+  "p24_q2_a": "Continue",
+
+  "p24_q3_text": "A module that has not yet been parameterized in the control unit causes the error",
+  "p24_q3_info": "Parameterize all modules in the control unit.",
+  "p24_q3_a": "Continue",
+
+  "p24_q4_text": "Do all modules have no communication with the control unit, or does module x have no communication with the control unit?",
+  "p24_q4_a": "Continue",
+
+  "p48_q1_text": "The current situation must now be examined closely. When did the error message \"Module error - No communication \" first appear?",
+  "p48_q1_info": "Was the error message displayed directly, or did the error message \"Element error - No communication\" appear first",
+  "p48_q1_a": "After element error",
+  "p48_q1_b": "Directly",
+
+  "p48_q2_text": "With connected modules, the elements also have no communication with the control unit.",
+  "p48_q2_info": "A connection of the connected modules is not correct, or an element board of the connected modules is defective.",
+  "p48_q2_result": " Correct the connections of the modules or replace the element board of the modules.",
+
+  "p48_q3_text": "The connected modules have no communication with the control unit.",
+  "p48_q3_info": "The electrical wiring of the module is faulty or the address is not set correctly",
+  "p48_q3_result": "Check the electrical wiring of the module or the address setting of the module.",
+
+  "p25_q1_text": "How many elements have no communication with the control unit?",
+  "p25_q1_a": "All",
+  "p25_q1_b": "One",
+
+  "p25_q2_text": "Was the partition ever fully operational before?",
+  "p25_q2_a": "No",
+  "p25_q2_b": "Yes",
+
+  "p26_q1_text": "Check the voltages in the parking area",
+  "p26_q1_info": "Turn the voltage on using the \" ON\" command. A voltage of ~36V should be present at rails 1 and 2. Are the voltages present correctly?",
+  "p26_q1_a": "No",
+  "p26_q1_b": "Yes",
+
+  "p26_q2_text": "Check additional voltages in the parking area",
+  "p26_q2_info": "Measure the voltages at the data rails in the parking area. A voltage of ~12V should be present at rails 2 and 3. Are the voltages present correctly?",
+  "p26_q2_a": "No",
+  "p26_q2_b": "Yes",
+
+  "p26_q3_text": "The voltages in the parking area are not OK!",
+  "p26_q3_info": "Turn off the 36V voltage of the rail using the \" STOP\" command.",
+  "p26_q3_a": "Continue",
+
+  "p26_q4_text": "The voltages in the parking area are OK!",
+  "p26_q4_info": "Turn off the 36V voltage of the rail using the \" STOP\" command.",
+  "p26_q4_a": "Continue",
+
+  "p27_q1_text": "Check the voltages at the lock strip.",
+  "p27_q1_info": "Turn the voltage on using the \" ON\" command. A voltage of ~36V should be present at rails 1 and 2. Are the voltages present correctly?",
+  "p27_q1_a": "No",
+  "p27_q1_b": "Yes",
+
+  "p27_q2_text": "Check additional voltages at the lock strip.",
+  "p27_q2_info": "Measure the voltages at the data rails on the lock strip. A voltage of ~12V should be present at rails 2 and 3. Are the voltages present correctly?",
+  "p27_q2_a": "No",
+  "p27_q2_b": "Yes",
+
+  "p27_q3_text": "The voltages at the lock strip are not OK!",
+  "p27_q3_info": "Turn off the 36V voltage of the rail using the \" STOP\" command.",
+  "p27_q3_a": "Continue",
+
+  "p27_q4_text": "The voltages at the lock strip are OK!",
+  "p27_q4_info": "Turn off the 36V voltage of the rail using the \" STOP\" command.",
+  "p27_q4_a": "Continue",
+
+  "p28_q1_text": "Check the voltages at the control unit.",
+  "p28_q1_info": "Disconnect the \"Power Rail\" connector from the control unit. Turn the voltage on using the \" ON\" command. Measure the voltages at the control unit. A voltage of ~36V should be present at contacts 1 and 2. Are the voltages present correctly?",
+  "p28_q1_a": "No",
+  "p28_q1_b": "Yes",
+
+  "p28_q2_text": "Check additional voltages at the control unit.",
+  "p28_q2_info": "Measure the voltages at the data contacts on the control unit. A voltage of ~12V should be present at contacts 2 and 3. Are the voltages present correctly?",
+  "p28_q2_a": "No",
+  "p28_q2_b": "Yes",
+
+  "p28_q3_text": "The voltages at the control unit are not OK!",
+  "p28_q3_info": "Turn off the 36V voltage of the control unit using the \" STOP\" command.",
+  "p28_q3_a": "Continue",
+
+  "p28_q4_text": "The voltages at the control unit are OK!",
+  "p28_q4_info": "Turn off the 36V voltage of the control unit using the \" STOP\" command.",
+  "p28_q4_a": "Continue",
+
+  "p29_q1_text": "Check the wiring of the rail.",
+  "p29_q1_info": "Disconnect the \"Power Rail\" connector from the control unit. Open the housing of the \"Power Rail\" connector. Check the connection from the connector to the rails by checking the wire numbers. Wire 1 should be in slot 1, wire 2 in 2, and wire 3 in 3. Is the wiring correct?",
+  "p29_q1_a": "No",
+  "p29_q1_b": "Yes",
+
+  "p29_q2_text": "Correct the wiring.",
+  "p29_q2_result": "The cause of the error has been resolved!",
+
+  "p29_q3_text": "Check the electrical connection from the connector to the rail.",
+  "p29_q3_info": "Check the connection with a continuity test. 1 should go to 1, 2 to 2, and 3 to 3. Is the electrical connection okay?",
+  "p29_q3_a": "No",
+  "p29_q3_b": "Yes",
+
+  "P30_q1_text": "A voltage is short-circuited somewhere!",
+  "p30_q1_info": "Plug the \"Power Rail\" connector into the control unit. Is it a MOVEO / Variflex or a glass partition?",
+  "p30_q1_a": "MOVEO / Variflex",
+  "p30_q1_b": "Glass",
+
+  "p30_q2_text": "Disconnect the \"Elemen\" connector from the drive board on all elements.",
+  "p30_q2_info": "Check the voltages in the parking area. Are they okay?",
+  "p30_q2_a": "No",
+  "p30_q2_b": "Yes",
+
+  "p30_q3_text": "Disconnect the \"Power\" connector from the drive board on all elements.",
+  "p30_q3_info": "Check the voltages in the parking area. Are they okay?",
+  "p30_q3_a": "No",
+  "p30_q3_b": "Yes",
+
+  "p31_q1_text": "Checking for a short circuit in the current collectors",
+  "p31_q1_info": " Move all elements to their \"OPEN\" position. Open the rail by removing the mounting pieces. Move the first element to the installation opening and remove the drive carriage from the rail by placing the element on the floor.",
+  "p31_q1_a": "Continue",
+
+  "p31_q2_text": "Check the voltages in the parking area",
+  "p31_q2_info": "Check the voltages in the parking area. A voltage of ~36V should be present at rails 1 and 2. A voltage of ~12V should be present at rails 2 and 3. Are the voltages present correctly?",
+  "p31_q2_a": "Yes",
+  "p31_q2_b": "No",
+
+  "p31_q3_text": "Check the current collectors.",
+  "p31_q3_info": "Check whether the current collectors have broken contacts or loose wires. Are the current collectors okay?",
+  "p31_q3_a": "No",
+  "p31_q3_b": "Yes",
+
+  "p31_q4_text": "Was this the last element in the system?",
+  "p31_q4_a": "No",
+  "p31_q4_b": "Yes",
+
+  "p31_q5_text": "Check the next element.",
+  "p31_q5_info": " Reinsert the drive carriage into the rail and move the element to its \"CLOSED\" position. Move the next element to the installation opening and lower it onto the floor.",
+  "p31_q5_a": "Continue",
+
+  "p31_q6_text": "Replace the drive carriage!",
+  "p31_q6_a": "Continue",
+
+  "p31_q7_text": "The drive carriage is defective!",
+  "p31_q7_result": "Replace the drive carriage!",
+
+  "p32_q1_text": "Checking for a short circuit in the drives",
+  "p32_q1_info": "Move all elements to their \"OPEN\"position.  Plug the \"Power\" connector of the first element back in.",
+  "p32_q1_a": "Continue",
+
+  "p32_q2_text": "Check the voltages in the parking area",
+  "p32_q2_info": "Check the voltages in the parking area. A voltage of ~36V should be present at rails 1 and 2. A voltage of ~12V should be present at rails 2 and 3. Are the voltages present correctly?",
+  "p32_q2_a": "No",
+  "p32_q2_b": "Yes",
+
+  "p32_q3_text": "Replace the drive carriage!",
+  "p32_q3_a": "Continue",
+
+  "p32_q4_text": "The drive carriage is okay!",
+  "p32_q4_a": "Continue",
+
+  "p32_q5_info": "Was this the last element in the system?",
+  "p32_q5_a": "No",
+  "p32_q5_b": "Yes",
+
+  "p32_q6_text": "Plug the \"Power\" connector of the next element back in.",
+  "p32_q6_a": "Continue",
+
+  "p33_q1_text": "Checking for a short circuit in the element",
+  "p33_q1_info": "Move all elements to their \"OPEN\" position. Plug the \"Element\" connector of the first element back in.",
+  "p33_q1_a": "Continue",
+
+  "p33_q2_text": "Check the voltages in the parking area",
+  "p33_q2_info": "Check the voltages in the parking area. A voltage of ~36V should be present at rails 1 and 2. A voltage of ~12V should be present at rails 2 and 3. Are the voltages present correctly?",
+  "p33_q2_a": "No",
+  "p33_q2_b": "Yes",
+
+  "p33_q3_text": "The short circuit is in this element!",
+  "p33_q3_a": "Continue",
+
+  "p33_q4_text": "This element is okay!",
+  "p33_q4_a": "Continue",
+
+  "p33_q5_info": "Was this the last element in the system?",
+  "p33_q5_a": "No",
+  "p33_q5_b": "Yes",
+
+  "p33_q6_text": "Plug the \"Element\" connector of the next element back in.",
+  "p33_q6_a": "Continue",
+
+  "p34_q1_text": "Resolving the short circuit in the element",
+  "p34_q1_info": "Open the element to gain access to the element board. Disconnect the \"Power\" connector from the element board.",
+  "p34_q1_a": "Continue",
+
+  "p34_q2_text": "Check the voltages in the parking area",
+  "p34_q2_info": "Check the voltages in the parking area. A voltage of ~36V should be present at rails 1 and 2. A voltage of ~12V should be present at rails 2 and 3. Are the voltages present correctly?",
+  "p34_q2_a": "No",
+  "p34_q2_b": "Yes",
+
+  "p34_q3_text": "Replace the Bolzek cable!",
+  "p34_q3_a": "Continue",
+
+  "p34_q4_text": "Reconnect the \"Power\" connector to the element board. Disconnect all \"MOTOR\" connectors from the element board!",
+  "p34_q4_a": "Continue",
+
+  "p34_q5_text": "Check the voltages in the parking area",
+  "p34_q5_info": "Check the voltages in the parking area. A voltage of ~36V should be present at rails 1 and 2. A voltage of ~12V should be present at rails 2 and 3. Are the voltages present correctly?",
+  "p34_q5_a": "No",
+  "p34_q5_b": "Yes",
+
+  "p34_q6_text": "Replace the element board!",
+  "p34_q6_a": "Continue",
+
+  "p34_q7_text": "Check all components connected via the \"Motor\" connector for a short circuit, and correct this short circuit!",
+  "p34_q7_a": "Continue",
+
+  "p34_q8_text": "The short circuit in this element has been resolved!",
+  "p34_q8_a": "Continue",
+
+  "p35_q1_text": "Checking elements no communication",
+  "p35_q1_info": "Move all elements to the \"OPEN\" position. Execute the \"OPEN\" command. Is the error message \"Element X No communication\" displayed again?",
+  "p35_q1_a": "No",
+  "p35_q1_b": "Yes",
+
+  "p35_q2_text": "The rails are interrupted somewhere along the rail run!",
+  "p35_q2_result": "Check all transitions of the rail and correct the interruption.",
+
+  "p35_q3_text": "Check the drive carriage.",
+  "p35_q3_info": "Check and correct the proper insertion of the \"Power\" connector on the drive board of element X. Check and correct the address settings on the address switches of ALL drive boards! Execute the  \"OPEN\" command again. Is the error message \"Element X No communication\" displayed again?",
+  "p35_q3_a": "No",
+  "p35_q3_b": "Yes",
+
+  "p35_q4_text": "The drive carriage of element X is defective!",
+  "p35_q4_result": "Replace the drive carriage!",
+
+  "result_track_text": "The rails are interrupted somewhere along the rail run!",
+  "result_track_result": "Check all transitions of the rail and correct the interruption!",
+
+  "result_short_track_text": "The short circuit is within the rail system!",
+  "result_short_track_result": "Check the rails and eliminate the cause of the short circuit!",
+
+  "result_control_unit_text": "The control unit power supply is defective!",
+  "result_control_unit_result": "Replace the control unit!",
+
+  "result_cable_text": "The connection cable is defective!",
+  "result_cable_result": "Replace the connection cable!",
+
+  "result_end_result": "The cause of the error has been resolved!"
+}
