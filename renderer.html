@@ -573,17 +573,23 @@
 
       const params = new URLSearchParams(window.location.search);
       const langFromUrl = params.get("lang");
-      let currentLang = localStorage.getItem("lang") || langFromUrl || "de";
+
+      let currentLang = langFromUrl || localStorage.getItem("lang") || "de";
       let DEBUG = params.has("DEBUG");
       let translations = {};
       let currentStep = "start";
 
       async function loadLanguage(lang) {
-        const res = await fetch(`lang/${lang}.json`);
-        translations = await res.json();
+        try {
+          const res = await fetch(`lang/${lang}.json`);
+          if (!res.ok) throw new Error("Language file not found");
 
-        document.getElementById("title").textContent = translations.title;
-        renderStep(currentStep);
+          translations = await res.json();
+          document.getElementById("title").textContent = translations.title;
+          renderStep(currentStep);
+        } catch (e) {
+          console.error("Fehler beim Laden der Sprache:", e);
+        }
       }
 
       function setLanguage(lang) {
