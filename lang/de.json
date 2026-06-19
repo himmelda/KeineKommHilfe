@@ -1,15 +1,18 @@
 {
   "title": "Fehlerdiagnose - Keine Kommunikation",
+  "p24_q1": "p24_q1",
   "p24_q1_text": "Ziehen Sie alle \"AUX. unit\"-Stecker aus der Steuerung",
   "p24_q1_info": "Führen Sie erneut einen Befehl aus. Wird jetzt ein ElementFehler, ein Modulfehler oder gar kein Fehler gemeldet?",
   "p24_q1_a": "Fehler Element",
   "p24_q1_b": "Kein Fehler",
   "p24_q1_c": "Fehler Modul",
 
+  "p24_q2": "p24_q2",
   "p24_q2_text": "Alle Elemente haben oder Element X hat keine Kommunikation mit der Steuerung?",
   "p24_q2_info": "Stecken Die die \"AUX. unit\"-Stecker nicht wieder in die Steuerung. Erst nachdem Sie den Fehler der Elemente behoben haben können sie alle \"Aux unit\"-Stecker wieder in die Steuerung stecken.",
   "p24_q2_a": "Weiter",
 
+  "p24_q3": "p24_q3",
   "p24_q3_text": "Ein Modul, welches noch nicht in der Steuerung parametriert ist, verursacht den Fehler",
   "p24_q3_info": "Parametrieren Sie alle Module in der Steuerung.",
   "p24_q3_a": "Weiter",
