@@ -105,18 +105,18 @@
   "p29_q3_a": "Nein",
   "p29_q3_b": "Ja",
 
-  "P30_q1_text": "Eine Spannung wird irgendwo kurzgeschlossen!",
+  "p30_q1_text": "Eine Spannung wird irgendwo kurzgeschlossen!",
   "p30_q1_info": "Stecken Sie den \"Power Rail\" Stecker in die Steuerung. Handelt es sich um eine MOVEO / Variflex oder eine Glas Trennwand?",
   "p30_q1_a": "MOVEO / Variflex",
   "p30_q1_b": "Glas",
 
   "p30_q2_text": "Ziehen Sie bei allen Elementen den \"Elemen\" Stecker der Antriebsplatine ab.",
-  "p30_q2_info": "Prüfen Sie die Spannungen im Parkbereich. Sind die diese in Ordnung?",
+  "p30_q2_info": "Prüfen Sie die Spannungen im Parkbereich. An den Schienen 1 und 2 sollte eine Spannung von ~36V anliegen. An den Schienen 2 und 3 sollte eine Spannung von ~12V anliegen. Liegen die Spannungen korrekt an?",
   "p30_q2_a": "Nein",
   "p30_q2_b": "Ja",
 
   "p30_q3_text": "Ziehen Sie bei allen Elementen den \"Power\" Stecker der Antriebsplatine ab.",
-  "p30_q3_info": "Prüfen Sie die Spannungen im Parkbereich. Sind die diese in Ordnung?",
+  "p30_q3_info": "Prüfen Sie die Spannungen im Parkbereich. An den Schienen 1 und 2 sollte eine Spannung von ~36V anliegen. An den Schienen 2 und 3 sollte eine Spannung von ~12V anliegen. Liegen die Spannungen korrekt an?",
   "p30_q3_a": "Nein",
   "p30_q3_b": "Ja",
 
