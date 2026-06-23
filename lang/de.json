@@ -97,11 +97,11 @@
   "p29_q1_a": "Nein",
   "p29_q1_b": "Ja",
 
-  "p29_q2_text": "Korriggieren Sie die Verdrahtung.",
+  "p29_q2_text": "Korrigieren Sie die Verdrahtung.",
   "p29_q2_result": "Die Fehlerursache ist behoben!",
 
   "p29_q3_text": "Prüfen sie die elektrische Verbindung vom Stecker zu der Stromschiene.",
-  "p29_q3_info": "Prüfen Sie die Verbindung mit einer Durchgansmessung. 1 sollte zu 1 gehen, 2 zu 2 und 3 zu 3. Ist die Elektrische Verbindung in Ordnung?",
+  "p29_q3_info": "Prüfen Sie die Verbindung mit einer Durchgangsmessung. 1 sollte zu 1 gehen, 2 zu 2 und 3 zu 3. Ist die Elektrische Verbindung in Ordnung?",
   "p29_q3_a": "Nein",
   "p29_q3_b": "Ja",
 
@@ -110,7 +110,7 @@
   "p30_q1_a": "MOVEO / Variflex",
   "p30_q1_b": "Glas",
 
-  "p30_q2_text": "Ziehen Sie bei allen Elementen den \"Elemen\" Stecker der Antriebsplatine ab.",
+  "p30_q2_text": "Ziehen Sie bei allen Elementen den \"Element\" Stecker der Antriebsplatine ab.",
   "p30_q2_info": "Prüfen Sie die Spannungen im Parkbereich. An den Schienen 1 und 2 sollte eine Spannung von ~36V anliegen. An den Schienen 2 und 3 sollte eine Spannung von ~12V anliegen. Liegen die Spannungen korrekt an?",
   "p30_q2_a": "Nein",
   "p30_q2_b": "Ja",
@@ -121,7 +121,7 @@
   "p30_q3_b": "Ja",
 
   "p31_q1_text": "Prüfung auf Kurzschluss der Stromabnehmer",
-  "p31_q1_info": " Schieben Sie alle Elemente in deren \"AUF\" Position. Öffnen Die die Schiene durch Entfernen der Montgestücke. Schieben Sie das erste Element zur Montageöffnung und nhemen Sie denAntriebswagn aus der Schiene indem Sie das Element auf den Boden abstellen.",
+  "p31_q1_info": " Schieben Sie alle Elemente in deren \"AUF\" Position. Öffnen Die die Schiene durch Entfernen der Montagestücke. Schieben Sie das erste Element zur Montageöffnung und nehmen Sie den Antriebswagen aus der Schiene indem Sie das Element auf den Boden abstellen.",
   "p31_q1_a": "Weiter",
 
   "p31_q2_text": "Prüfen Sie die Spannungen im Parkbereich",
@@ -201,7 +201,7 @@
   "p34_q2_a": "Nein",
   "p34_q2_b": "Ja",
 
-  "p34_q3_text": "Tauschen Sie das Bolzekkabel aus!",
+  "p34_q3_text": "Tauschen Sie das Bolzenkabel aus!",
   "p34_q3_a": "Weiter",
 
   "p34_q4_text": "Stecken Sie den \"Power\" Stecker wieder an die Elementplatine. Ziehen Sie alle \"MOTOR\" Stecker von der Elementplatine ab!",

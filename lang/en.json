@@ -110,7 +110,7 @@
   "p30_q1_a": "MOVEO / Variflex",
   "p30_q1_b": "Glass",
 
-  "p30_q2_text": "Disconnect the \"Elemen\" connector from the drive board on all elements.",
+  "p30_q2_text": "Disconnect the \"Element\" connector from the drive board on all elements.",
   "p30_q2_info": "Check the voltages in the parking area. Are they okay?",
   "p30_q2_a": "No",
   "p30_q2_b": "Yes",
@@ -201,7 +201,7 @@
   "p34_q2_a": "No",
   "p34_q2_b": "Yes",
 
-  "p34_q3_text": "Replace the Bolzek cable!",
+  "p34_q3_text": "Replace the bolt cable!",
   "p34_q3_a": "Continue",
 
   "p34_q4_text": "Reconnect the \"Power\" connector to the element board. Disconnect all \"MOTOR\" connectors from the element board!",

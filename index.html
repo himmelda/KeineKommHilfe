@@ -1,66 +1,58 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="de">
-<head>
-  <meta charset="UTF-8">
-  <title>Sprachauswahl</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #f7f7f7;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      margin: 0;
-    }
+  <head>
+    <meta charset="UTF-8" />
+    <title>Troubleshooting</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background: #f7f7f7;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+      }
 
-    .language-box {
-      background: white;
-      padding: 30px;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-      text-align: center;
-    }
+      .language-box {
+        background: white;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        text-align: center;
+      }
 
-    h1 {
-      margin-bottom: 20px;
-    }
+      h1 {
+        margin-bottom: 20px;
+      }
 
-    a {
-      display: block;
-      margin: 10px 0;
-      padding: 12px;
-      text-decoration: none;
-      font-weight: bold;
-      color: white;
-      background: #0078d4;
-      border-radius: 6px;
-    }
+      a {
+        display: block;
+        margin: 10px 0;
+        padding: 12px;
+        text-decoration: none;
+        font-weight: bold;
+        color: white;
+        background: #0078d4;
+        border-radius: 6px;
+      }
 
-    a:hover {
-      background: #005fa3;
-    }
-  </style>
-</head>
-<body>
+      a:hover {
+        background: #005fa3;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="language-box">
+      <h1>Select Language</h1>
 
+      <a href="renderer.html?lang=de"> <span class="flag">🇩🇪</span> Deutsch </a>
 
-  <div class="language-box">
-    <h1>Select Language</h1>
+      <a href="renderer.html?lang=en"> <span class="flag">🇬🇧</span> English </a>
 
-    <a href="renderer.html?lang=de">
-      <span class="flag">🇩🇪</span> Deutsch
-    </a>
-
-    <a href="renderer.html?lang=en">
-      <span class="flag">🇬🇧</span> English
-    </a>
-
-    <a href="renderer.html?lang=fr">
-      <span class="flag">🇫🇷</span> Français
-    </a>
-  </div>
-
-
-</body>
+      <a href="renderer.html?lang=fr">
+        <span class="flag">🇫🇷</span> Français
+      </a>
+    </div>
+  </body>
 </html>
